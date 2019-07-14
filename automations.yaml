@@ -5,8 +5,7 @@
   action:
     - delay: 00:01:00
     - service: homekit.start
-    - service: media_player.turn_off
-      entity_id: media_player.livingroom_tv
+    - service: script.turn_off_tv
 
 - alias: someone-home
   trigger:

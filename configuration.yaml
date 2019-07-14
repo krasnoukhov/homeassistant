@@ -79,7 +79,7 @@ binary_sensor:
     sensors:
       livingroom_outlet_tv_state:
         value_template: |
-          "{{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}"
+          {{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}
 
 switch:
   - platform: broadlink
