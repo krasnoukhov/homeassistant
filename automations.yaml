@@ -1,0 +1,84 @@
+- alias: home-assistant-setup
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - delay: 00:01:00
+    - service: homekit.start
+    - service: media_player.turn_off
+      entity_id: media_player.livingroom_tv
+
+- alias: someone-home
+  trigger:
+    platform: state
+    entity_id: person.daria, person.dmitry
+    from: not_home
+    to: home
+  action:
+    - service: switch.turn_on
+      entity_id: switch.0x00124b00180358d3_switch_left
+
+- alias: everyone-left
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    to: not_home
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: group.all_turnable_switches
+    - service: climate.turn_off
+      data:
+        entity_id: climate.livingroom_ac
+    - service: media_player.turn_off
+      entity_id: media_player.livingroom_tv
+
+- alias: bathroom-vent-timeout
+  trigger:
+    platform: state
+    entity_id: switch.0x00124b001838cdfd_switch_right
+    to: "on"
+  action:
+    - delay: 00:30:00
+    - service: switch.turn_off
+      data:
+        entity_id: switch.0x00124b001838cdfd_switch_right
+
+- alias: toggle-bedside-lamp
+  trigger:
+    - platform: state
+      entity_id: sensor.0x00158d0002e2ccea_click
+      to: left
+    - platform: state
+      entity_id: sensor.0x00158d0002e2ccea_click
+      to: right
+  action:
+    service_template: >
+      switch.{% if trigger.to_state.state == "left" %}turn_on{% else %}turn_off{% endif %}
+    entity_id: switch.0x00124b001838b864_switch_left
+
+- alias: toggle-livingroom-lamp
+  trigger:
+    platform: state
+    entity_id: sensor.0x00158d0002c92aef_click
+    to: single
+  action:
+    service: switch.toggle
+    entity_id: switch.livingroom_lamp
+
+# - service: remote.send_command
+#   data:
+#     entity_id: remote.apple_tv
+#     command: menu
+# - delay: 00:00:15
+# - service: tts.google_translate_say
+#   data:
+#     entity_id: media_player.apple_tv
+#     message: priyvet kotuska dobro pozhalovat
+# - delay: 00:00:05
+# - service: remote.send_command
+#   data:
+#     entity_id: remote.apple_tv
+#     command: menu
+# - service: media_player.turn_off
+#   entity_id: media_player.livingroom_tv

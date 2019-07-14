@@ -1,0 +1,121 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+frontend:
+  themes: !include themes.yaml
+
+datadog:
+discovery:
+
+mqtt:
+  discovery: true
+  password: !secret mqtt_password
+  birth_message:
+    topic: hass/status
+    payload: online
+  will_message:
+    topic: hass/status
+    payload: offline
+
+device_tracker:
+  - platform: unifi
+    host: 192.168.1.2
+    username: homeassistant
+    password: !secret unifi_password
+    verify_ssl: false
+    interval_seconds: 5
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+
+homekit:
+  auto_start: false
+  filter:
+    exclude_domains:
+      - automation
+      - device_tracker
+      - remote
+    exclude_entities:
+      - binary_sensor.remote_ui
+      - binary_sensor.livingroom_outlet_tv_state
+      - switch.0x00124b001838b864_switch_right
+      - switch.0x00124b0018028fd6_switch_right
+      - switch.0x00124b0018034c86_switch_right
+      - switch.0x00124b001803573a_switch_right
+      - switch.0x00124b00180358d3_switch_right
+      - switch.0x00124b001838d640_switch_left
+      - switch.0x00124b001838d640_switch_right
+      - switch.0x00124b001838d9fe_switch_right
+      - switch.livingroom_outlet_tv
+
+apple_tv:
+  - host: 192.168.1.15
+    login_id: !secret atv_login_id
+    credentials: !secret atv_credentials
+
+sensor:
+  - platform: pi_hole
+  - platform: mqtt
+    name: krasnoukhov_weight
+    state_topic: miscale/krasnoukhov_weight/kg
+    value_template: "{{ value }}"
+    unit_of_measurement: kg
+    expire_after: 172800
+  - platform: mqtt
+    name: darianiff_weight
+    state_topic: miscale/darianiff_weight/kg
+    value_template: "{{ value }}"
+    unit_of_measurement: kg
+    expire_after: 172800
+
+binary_sensor:
+  - platform: template
+    sensors:
+      livingroom_outlet_tv_state:
+        value_template: "{{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}"
+
+switch:
+  - platform: broadlink
+    host: 192.168.1.20
+    mac: !secret livingroom_ir_mac
+    type: rm_mini
+  - platform: broadlink
+    host: 192.168.1.21
+    mac: !secret livingroom_outlet_tv_mac
+    type: sp3
+    friendly_name: livingroom-outlet-tv
+  - platform: broadlink
+    host: 192.168.1.22
+    mac: !secret livingroom_lamp_mac
+    type: sp3
+    friendly_name: livingroom-lamp
+
+smartir:
+
+climate:
+  - platform: smartir
+    name: livingroom-ac
+    unique_id: livingroom_ac
+    device_code: 1180
+    controller_data: 192.168.1.20
+    temperature_sensor: sensor.0x00158d0002f2ed1f_temperature
+    humidity_sensor: sensor.0x00158d0002f2ed1f_humidity
+
+media_player:
+  - platform: smartir
+    name: livingroom-tv
+    unique_id: livingroom_tv
+    device_code: 1020
+    controller_data: 192.168.1.20
+    power_sensor: binary_sensor.livingroom_outlet_tv_state

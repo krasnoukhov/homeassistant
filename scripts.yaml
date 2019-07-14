@@ -1,0 +1,11 @@
+cycle_zigbee_permit_join:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/bridge/config/permit_join
+        payload: "true"
+    - delay: 00:05:00
+    - service: mqtt.publish
+      data:
+        topic: zigbee2mqtt/bridge/config/permit_join
+        payload: "false"

@@ -1,0 +1,16 @@
+cron_scripts/
+custom_components/
+deps/
+tts/
+.storage/
+.cloud/
+
+.homekit.state
+.ios.conf
+.HA_VERSION
+*.log
+*.db
+
+secrets.yaml
+known_devices.yaml
+zones.yaml
