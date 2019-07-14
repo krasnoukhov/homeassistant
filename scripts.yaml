@@ -1,10 +1,12 @@
 update_from_github:
+  alias: update-from-github
   sequence:
     - service: shell_command.update_from_github
     - service: homeassistant.check_config
     - service: homeassistant.restart
 
 cycle_zigbee_permit_join:
+  alias: cycle-zigbee-permit-join
   sequence:
     - service: mqtt.publish
       data:
@@ -15,3 +17,13 @@ cycle_zigbee_permit_join:
       data:
         topic: zigbee2mqtt/bridge/config/permit_join
         payload: "false"
+
+turn_off_tv:
+  alias: turn-off-tv
+  sequence:
+    - condition: state
+      entity_id: binary_sensor.livingroom_outlet_tv_state
+      state: "on"
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.livingroom_tv

@@ -30,8 +30,7 @@
     - service: climate.turn_off
       data:
         entity_id: climate.livingroom_ac
-    - service: media_player.turn_off
-      entity_id: media_player.livingroom_tv
+    - service: script.turn_off_tv
 
 - alias: bathroom-vent-timeout
   trigger:

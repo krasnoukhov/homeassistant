@@ -1,14 +1,4 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
-# Text to speech
-tts:
-  - platform: google_translate
-
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
@@ -18,6 +8,10 @@ frontend:
 
 datadog:
 discovery:
+smartir:
+
+tts:
+  - platform: google_translate
 
 mqtt:
   discovery: true
@@ -84,7 +78,8 @@ binary_sensor:
   - platform: template
     sensors:
       livingroom_outlet_tv_state:
-        value_template: "{{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}"
+        value_template: |
+          "{{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}"
 
 switch:
   - platform: broadlink
@@ -101,8 +96,6 @@ switch:
     mac: !secret livingroom_lamp_mac
     type: sp3
     friendly_name: livingroom-lamp
-
-smartir:
 
 climate:
   - platform: smartir
