@@ -1,3 +1,9 @@
+update_from_github:
+  sequence:
+    - service: shell_command.update_from_github
+    - service: homeassistant.check_config
+    - service: homeassistant.restart
+
 cycle_zigbee_permit_join:
   sequence:
     - service: mqtt.publish
