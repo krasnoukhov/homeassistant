@@ -1,0 +1,47 @@
+homeassistant: true
+permit_join: false
+experimental:
+  livolo: true
+advanced:
+  channel: 26
+serial:
+  port: /dev/ttyACM0
+mqtt:
+  base_topic: zigbee2mqtt
+  server: 'mqtt://localhost'
+  user: homeassistant
+  password: privet
+devices:
+  '0x00158d0002f2ed69':
+    friendly_name: bedroom
+    retain: true
+  '0x00158d0002f2ed1f':
+    friendly_name: livingroom
+    retain: true
+  '0x00124b001838b864':
+    friendly_name: kitchen_light
+    retain: true
+  '0x00158d0002e2ccea':
+    friendly_name: bedroom_lamps
+    retain: true
+  '0x00124b00180358d3':
+    friendly_name: hallway_light_entrance
+    retain: true
+  '0x00124b001838cdfd':
+    friendly_name: bathroom_switch
+    retain: true
+  '0x00124b001803573a':
+    friendly_name: livingroom_light
+    retain: true
+  '0x00124b0018028fd6':
+    friendly_name: bedroom_light
+    retain: true
+  '0x00124b001838d640':
+    friendly_name: hallway_light_dup
+    retain: true
+  '0x00124b001838d9fe':
+    friendly_name: hallway_light
+    retain: true
+  '0x00158d0002c92aef':
+    friendly_name: livingroom_lamp
+    retain: true
