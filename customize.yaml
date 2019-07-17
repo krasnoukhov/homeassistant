@@ -105,6 +105,7 @@ switch.livingroom_lamp:
 
 climate.livingroom_ac:
   friendly_name: livingroom-ac
+  icon: mdi:air-conditioner
 media_player.livingroom_tv:
   friendly_name: livingroom-tv
   icon: mdi:television

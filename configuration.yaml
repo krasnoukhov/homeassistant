@@ -93,6 +93,7 @@ switch:
     mac: !secret livingroom_outlet_tv_mac
     type: sp3
     friendly_name: livingroom-outlet-tv
+    scan_interval: 3
   - platform: broadlink
     host: 192.168.1.22
     mac: !secret livingroom_lamp_mac
