@@ -5,6 +5,8 @@ script: !include scripts.yaml
 shell_command: !include shell_commands.yaml
 frontend:
   themes: !include themes.yaml
+homeassistant:
+  customize: !include customize.yaml
 
 datadog:
 discovery:

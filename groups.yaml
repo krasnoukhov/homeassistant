@@ -1,4 +1,5 @@
 all_turnable_switches:
+  name: all-turnable-switches
   entities:
     - switch.0x00124b0018028fd6_switch_left
     - switch.0x00124b001803573a_switch_left

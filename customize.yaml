@@ -1,0 +1,117 @@
+# MQTT
+
+sensor.0x00158d0002f2ed69_temperature:
+  friendly_name: bedroom-temp
+sensor.0x00158d0002f2ed69_humidity:
+  friendly_name: bedroom-humidity
+sensor.0x00158d0002f2ed69_pressure:
+  friendly_name: bedroom-pressure
+sensor.0x00158d0002f2ed69_linkquality:
+  friendly_name: bedroom-link
+sensor.0x00158d0002f2ed69_battery:
+  friendly_name: bedroom-battery
+
+sensor.0x00158d0002f2ed1f_temperature:
+  friendly_name: livingroom-temp
+sensor.0x00158d0002f2ed1f_humidity:
+  friendly_name: livingroom-humidity
+sensor.0x00158d0002f2ed1f_pressure:
+  friendly_name: livingroom-pressure
+sensor.0x00158d0002f2ed1f_linkquality:
+  friendly_name: livingroom-link
+sensor.0x00158d0002f2ed1f_battery:
+  friendly_name: livingroom-battery
+
+switch.0x00124b001838b864_switch_left:
+  friendly_name: kitchen-light
+  icon: mdi:ceiling-light
+switch.0x00124b001838b864_switch_right:
+  friendly_name: kitchen-light-defunct
+sensor.0x00124b001838b864_linkquality:
+  friendly_name: kitchen-light-link
+
+sensor.0x00158d0002e2ccea_click:
+  friendly_name: bedroom-lamps
+sensor.0x00158d0002e2ccea_linkquality:
+  friendly_name: bedroom-lamps-link
+sensor.0x00158d0002e2ccea_battery:
+  friendly_name: bedroom-lamps-battery
+
+switch.0x00124b00180358d3_switch_left:
+  friendly_name: hallway-light-entrance
+  icon: mdi:ceiling-light
+switch.0x00124b00180358d3_switch_right:
+  friendly_name: hallway-light-entrance-defunct
+sensor.0x00124b00180358d3_linkquality:
+  friendly_name: hallway-light-entrance-link
+
+switch.0x00124b001838cdfd_switch_left:
+  friendly_name: bathroom-light
+  icon: mdi:ceiling-light
+switch.0x00124b001838cdfd_switch_right:
+  friendly_name: bathroom-fan
+  icon: mdi:fan
+sensor.0x00124b001838cdfd_linkquality:
+  friendly_name: bathroom-switch-link
+
+switch.0x00124b001803573a_switch_left:
+  friendly_name: livingroom-light
+  icon: mdi:ceiling-light
+switch.0x00124b001803573a_switch_right:
+  friendly_name: livingroom-light-defunct
+sensor.0x00124b001803573a_linkquality:
+  friendly_name: livingroom-light-link
+
+switch.0x00124b0018028fd6_switch_left:
+  friendly_name: bedroom-light
+  icon: mdi:ceiling-light
+switch.0x00124b0018028fd6_switch_right:
+  friendly_name: bedroom-light-defunct
+sensor.0x00124b0018028fd6_linkquality:
+  friendly_name: bedroom-light-link
+
+switch.0x00124b001838d640_switch_left:
+  friendly_name: hallway-light-dup
+  icon: mdi:ceiling-light
+switch.0x00124b001838d640_switch_right:
+  friendly_name: hallway-light-dup-defunct
+sensor.0x00124b001838d640_linkquality:
+  friendly_name: hallway-light-dup-link
+
+switch.0x00124b001838d9fe_switch_left:
+  friendly_name: hallway-light
+  icon: mdi:ceiling-light
+switch.0x00124b001838d9fe_switch_right:
+  friendly_name: hallway-light-defunct
+sensor.0x00124b001838d9fe_linkquality:
+  friendly_name: hallway-light-link
+
+sensor.0x00158d0002c92aef_click:
+  friendly_name: livingroom-lamp
+sensor.0x00158d0002c92aef_action:
+  friendly_name: livingroom-lamp-action
+sensor.0x00158d0002c92aef_linkquality:
+  friendly_name: livingroom-lamp-link
+sensor.0x00158d0002c92aef_battery:
+  friendly_name: livingroom-lamp-battery
+
+# Broadlink
+
+switch.livingroom_lamp:
+  friendly_name: livingroom-lamp
+  icon: mdi:floor-lamp
+
+# Other
+
+climate.livingroom_ac:
+  friendly_name: livingroom-ac
+media_player.livingroom_tv:
+  friendly_name: livingroom-tv
+  icon: mdi:television
+media_player.apple_tv:
+  friendly_name: apple-tv
+  icon: mdi:television-guide
+sensor.krasnoukhov_weight:
+  friendly_name: krasnoukhovweight
+sensor.pi_hole_ads_blocked_today:
+  friendly_name: ads-blocked
