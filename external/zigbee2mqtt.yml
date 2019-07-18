@@ -22,7 +22,7 @@ devices:
     friendly_name: kitchen_light
     retain: true
   '0x00158d0002e2ccea':
-    friendly_name: bedroom_lamps
+    friendly_name: bedroom_lamps_switch
     retain: true
   '0x00124b00180358d3':
     friendly_name: hallway_light_entrance
@@ -43,7 +43,7 @@ devices:
     friendly_name: hallway_light
     retain: true
   '0x00158d0002c92aef':
-    friendly_name: livingroom_lamp
+    friendly_name: livingroom_lamp_switch
     retain: true
   '0x000d6ffffe4872d8':
     friendly_name: kitchen_lamp
@@ -70,5 +70,5 @@ devices:
     friendly_name: bedroom_lamp_right
     retain: true
   '0x00158d0002bfea67':
-    friendly_name: kitchen_lamp
+    friendly_name: kitchen_lamp_switch
     retain: true

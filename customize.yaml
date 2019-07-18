@@ -31,11 +31,11 @@ sensor.0x00124b001838b864_linkquality:
   friendly_name: kitchen-light-link
 
 sensor.0x00158d0002e2ccea_click:
-  friendly_name: bedroom-lamps
+  friendly_name: bedroom-lamps-switch
 sensor.0x00158d0002e2ccea_linkquality:
-  friendly_name: bedroom-lamps-link
+  friendly_name: bedroom-lamps-switch-link
 sensor.0x00158d0002e2ccea_battery:
-  friendly_name: bedroom-lamps-battery
+  friendly_name: bedroom-lamps-switch-battery
 
 switch.0x00124b00180358d3_switch_left:
   friendly_name: hallway-light-entrance
@@ -87,13 +87,13 @@ sensor.0x00124b001838d9fe_linkquality:
   friendly_name: hallway-light-link
 
 sensor.0x00158d0002c92aef_click:
-  friendly_name: livingroom-lamp
+  friendly_name: livingroom-lamp-switch
 sensor.0x00158d0002c92aef_action:
-  friendly_name: livingroom-lamp-action
+  friendly_name: livingroom-lamp-switch-action
 sensor.0x00158d0002c92aef_linkquality:
-  friendly_name: livingroom-lamp-link
+  friendly_name: livingroom-lamp-switch-link
 sensor.0x00158d0002c92aef_battery:
-  friendly_name: livingroom-lamp-battery
+  friendly_name: livingroom-lamp-switch-battery
 
 sensor.0x00158d0002043eb9_click:
   friendly_name: bedroom-lamp-left
@@ -114,13 +114,13 @@ sensor.0x00158d0002008fd6_battery:
   friendly_name: bedroom-lamp-right-battery
 
 sensor.0x00158d0002bfea67_click:
-  friendly_name: kitchen-lamp
+  friendly_name: kitchen-lamp-switch
 sensor.0x00158d0002bfea67_action:
-  friendly_name: kitchen-lamp-action
+  friendly_name: kitchen-lamp-switch-action
 sensor.0x00158d0002bfea67_linkquality:
-  friendly_name: kitchen-lamp-link
+  friendly_name: kitchen-lamp-switch-link
 sensor.0x00158d0002bfea67_battery:
-  friendly_name: kitchen-lamp-battery
+  friendly_name: kitchen-lamp-switch-battery
 
 # Broadlink
 
