@@ -14,9 +14,17 @@ all_turnable_entities:
     - light.0xd0cf5efffefc876e_light
     - light.0x000d6ffffe12c0c2_light
     - light.0x000b57fffed836d2_light
+
 livingroom_lamp:
   name: livingroom-lamp
   icon: mdi:floor-lamp
   entities:
     - light.0x000d6ffffe0e63cd_light
     - light.0x000d6ffffe4860dd_light
+
+kitchen_lamp:
+  name: kitchen-lamp
+  icon: mdi:floor-lamp
+  entities:
+    - light.0x000d6ffffe4872d8_light
+    - light.0x000b57fffed836d2_light

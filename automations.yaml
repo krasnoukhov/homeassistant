@@ -85,4 +85,4 @@
     to: single
   action:
     service: light.toggle
-    entity_id: light.0x000d6ffffe4872d8_light
+    entity_id: group.kitchen_lamp
