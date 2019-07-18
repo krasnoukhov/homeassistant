@@ -45,3 +45,30 @@ devices:
   '0x00158d0002c92aef':
     friendly_name: livingroom_lamp
     retain: true
+  '0x000d6ffffe4872d8':
+    friendly_name: kitchen_lamp
+    retain: true
+  '0x000d6ffffe0e63cd':
+    friendly_name: livingroom_lamp1
+    retain: true
+  '0x000d6ffffe4860dd':
+    friendly_name: livingroom_lamp2
+    retain: true
+  '0xd0cf5efffefc876e':
+    friendly_name: bedroom_lamp_left
+    retain: true
+  '0x000d6ffffe12c0c2':
+    friendly_name: bedroom_lamp_right
+    retain: true
+  '0x000b57fffed836d2':
+    friendly_name: kitchen_lamp_small
+    retain: true
+  '0x00158d0002043eb9':
+    friendly_name: bedroom_lamp_left
+    retain: true
+  '0x00158d0002008fd6':
+    friendly_name: bedroom_lamp_right
+    retain: true
+  '0x00158d0002bfea67':
+    friendly_name: kitchen_lamp
+    retain: true

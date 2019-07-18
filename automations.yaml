@@ -25,7 +25,10 @@
   action:
     - service: switch.turn_off
       data:
-        entity_id: group.all_turnable_switches
+        entity_id: group.all_turnable_entities
+    - service: light.turn_off
+      data:
+        entity_id: group.all_turnable_entities
     - service: climate.turn_off
       data:
         entity_id: climate.livingroom_ac
@@ -50,10 +53,21 @@
     - platform: state
       entity_id: sensor.0x00158d0002e2ccea_click
       to: right
+    - platform: state
+      entity_id: sensor.0x00158d0002043eb9_click
+      to: single
+    - platform: state
+      entity_id: sensor.0x00158d0002008fd6_click
+      to: single
   action:
-    service_template: >
-      switch.{% if trigger.to_state.state == "left" %}turn_on{% else %}turn_off{% endif %}
-    entity_id: switch.0x00124b001838b864_switch_left
+    service: light.toggle
+    data_template:
+      entity_id: >-
+        {%- if (trigger.to_state.state == "right") or (trigger.entity_id == "sensor.0x00158d0002043eb9_click") -%}
+        light.0xd0cf5efffefc876e_light
+        {%- else -%}
+        light.0x000d6ffffe12c0c2_light
+        {%- endif -%}
 
 - alias: toggle-livingroom-lamp
   trigger:
@@ -61,22 +75,14 @@
     entity_id: sensor.0x00158d0002c92aef_click
     to: single
   action:
-    service: switch.toggle
-    entity_id: switch.livingroom_lamp
+    service: light.toggle
+    entity_id: group.livingroom_lamp
 
-# - service: remote.send_command
-#   data:
-#     entity_id: remote.apple_tv
-#     command: menu
-# - delay: 00:00:15
-# - service: tts.google_translate_say
-#   data:
-#     entity_id: media_player.apple_tv
-#     message: priyvet kotuska dobro pozhalovat
-# - delay: 00:00:05
-# - service: remote.send_command
-#   data:
-#     entity_id: remote.apple_tv
-#     command: menu
-# - service: media_player.turn_off
-#   entity_id: media_player.livingroom_tv
+- alias: toggle-kitchen-lamp
+  trigger:
+    platform: state
+    entity_id: sensor.0x00158d0002bfea67_click
+    to: single
+  action:
+    service: light.toggle
+    entity_id: light.0x000d6ffffe4872d8_light

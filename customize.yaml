@@ -95,11 +95,74 @@ sensor.0x00158d0002c92aef_linkquality:
 sensor.0x00158d0002c92aef_battery:
   friendly_name: livingroom-lamp-battery
 
+sensor.0x00158d0002043eb9_click:
+  friendly_name: bedroom-lamp-left
+sensor.0x00158d0002043eb9_action:
+  friendly_name: bedroom-lamp-left-action
+sensor.0x00158d0002043eb9_linkquality:
+  friendly_name: bedroom-lamp-left-link
+sensor.0x00158d0002043eb9_battery:
+  friendly_name: bedroom-lamp-left-battery
+
+sensor.0x00158d0002008fd6_click:
+  friendly_name: bedroom-lamp-right
+sensor.0x00158d0002008fd6_action:
+  friendly_name: bedroom-lamp-right-action
+sensor.0x00158d0002008fd6_linkquality:
+  friendly_name: bedroom-lamp-right-link
+sensor.0x00158d0002008fd6_battery:
+  friendly_name: bedroom-lamp-right-battery
+
+sensor.0x00158d0002bfea67_click:
+  friendly_name: kitchen-lamp
+sensor.0x00158d0002bfea67_action:
+  friendly_name: kitchen-lamp-action
+sensor.0x00158d0002bfea67_linkquality:
+  friendly_name: kitchen-lamp-link
+sensor.0x00158d0002bfea67_battery:
+  friendly_name: kitchen-lamp-battery
+
 # Broadlink
 
-switch.livingroom_lamp:
-  friendly_name: livingroom-lamp
+switch.bathroom_outlet_washer:
+  friendly_name: bathroom-outlet-washer
+  icon: mdi:washing-machine
+
+# IKEA
+
+light.0x000d6ffffe4872d8_light:
+  friendly_name: kitchen-lamp
   icon: mdi:floor-lamp
+sensor.0x000d6ffffe4872d8_linkquality:
+  friendly_name: kitchen-lamp-link
+
+light.0x000d6ffffe0e63cd_light:
+  friendly_name: livingroom-lamp1
+  icon: mdi:floor-lamp
+sensor.0x000d6ffffe0e63cd_linkquality:
+  friendly_name: livingroom-lamp1-link
+
+light.0x000d6ffffe4860dd_light:
+  friendly_name: livingroom-lamp2
+  icon: mdi:floor-lamp
+sensor.0x000d6ffffe4860dd_linkquality:
+  friendly_name: livingroom-lamp2-link
+
+light.0xd0cf5efffefc876e_light:
+  friendly_name: bedroom-lamp-left
+sensor.0xd0cf5efffefc876e_linkquality:
+  friendly_name: bedroom-lamp-left-link
+
+light.0x000d6ffffe12c0c2_light:
+  friendly_name: bedroom-lamp-right
+sensor.0x000d6ffffe12c0c2_linkquality:
+  friendly_name: bedroom-lamp-right-link
+
+light.0x000b57fffed836d2_light:
+  friendly_name: kitchen-lamp-small
+  icon: mdi:floor-lamp
+sensor.0x000b57fffed836d2_linkquality:
+  friendly_name: kitchen-lamp-small-link
 
 # Other
 

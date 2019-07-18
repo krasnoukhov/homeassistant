@@ -96,9 +96,9 @@ switch:
     scan_interval: 3
   - platform: broadlink
     host: 192.168.1.22
-    mac: !secret livingroom_lamp_mac
+    mac: !secret bathroom_outlet_washer_mac
     type: sp3
-    friendly_name: livingroom-lamp
+    friendly_name: bathroom-outlet-washer
 
 climate:
   - platform: smartir
