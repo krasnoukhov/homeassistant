@@ -86,3 +86,12 @@ devices:
   '0x00158d0002821ea3':
     friendly_name: bathroom_leak
     retain: false
+  '0x00158d0002c957d1':
+    friendly_name: dishwasher_door
+    retain: false
+  '0x00158d00028a09a5':
+    friendly_name: kitchen_leak
+    retain: false
+  '0x00158d0002c9584d':
+    friendly_name: entrance_door
+    retain: false

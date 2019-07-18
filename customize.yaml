@@ -122,6 +122,13 @@ sensor.0x00158d0002bfea67_linkquality:
 sensor.0x00158d0002bfea67_battery:
   friendly_name: kitchen-lamp-switch-battery
 
+binary_sensor.0x00158d000309939d_contact:
+  friendly_name: washer-door
+sensor.0x00158d000309939d_linkquality:
+  friendly_name: washer-door-link
+sensor.0x00158d000309939d_battery:
+  friendly_name: washer-door-battery
+
 binary_sensor.0x00158d0002821ea3_water_leak:
   friendly_name: bathroom-leak
 sensor.0x00158d0002821ea3_linkquality:
@@ -129,12 +136,26 @@ sensor.0x00158d0002821ea3_linkquality:
 sensor.0x00158d0002821ea3_battery:
   friendly_name: bathroom-leak-battery
 
-binary_sensor.0x00158d000309939d_contact:
-  friendly_name: washer-door
-sensor.0x00158d000309939d_linkquality:
-  friendly_name: washer-door-link
-sensor.0x00158d000309939d_battery:
-  friendly_name: washer-door-battery
+binary_sensor.0x00158d0002c957d1_contact:
+  friendly_name: dishwasher-door
+sensor.0x00158d0002c957d1_linkquality:
+  friendly_name: dishwasher-door-link
+sensor.0x00158d0002c957d1_battery:
+  friendly_name: dishwasher-door-battery
+
+binary_sensor.0x00158d00028a09a5_water_leak:
+  friendly_name: kitchen-leak
+sensor.0x00158d00028a09a5_linkquality:
+  friendly_name: kitchen-leak-link
+sensor.0x00158d00028a09a5_battery:
+  friendly_name: kitchen-leak-battery
+
+binary_sensor.0x00158d0002c9584d_contact:
+  friendly_name: entrance-door
+sensor.0x00158d0002c9584d_linkquality:
+  friendly_name: entrance-door-link
+sensor.0x00158d0002c9584d_battery:
+  friendly_name: entrance-door-battery
 
 # Broadlink
 
