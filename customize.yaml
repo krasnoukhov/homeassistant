@@ -122,6 +122,20 @@ sensor.0x00158d0002bfea67_linkquality:
 sensor.0x00158d0002bfea67_battery:
   friendly_name: kitchen-lamp-switch-battery
 
+binary_sensor.0x00158d0002821ea3_water_leak:
+  friendly_name: bathroom-leak
+sensor.0x00158d0002821ea3_linkquality:
+  friendly_name: bathroom-leak-link
+sensor.0x00158d0002821ea3_battery:
+  friendly_name: bathroom-leak-battery
+
+binary_sensor.0x00158d000309939d_contact:
+  friendly_name: washer-door
+sensor.0x00158d000309939d_linkquality:
+  friendly_name: washer-door-link
+sensor.0x00158d000309939d_battery:
+  friendly_name: washer-door-battery
+
 # Broadlink
 
 switch.bathroom_outlet_washer:

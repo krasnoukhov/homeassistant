@@ -55,6 +55,7 @@ homekit:
       - switch.0x00124b001838d640_switch_right
       - switch.0x00124b001838d9fe_switch_right
       - switch.livingroom_outlet_tv
+      - switch.bathroom_outlet_washer
 
 apple_tv:
   - host: 192.168.1.15

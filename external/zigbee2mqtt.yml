@@ -80,3 +80,9 @@ devices:
   '0x00158d0002bfea67':
     friendly_name: kitchen_lamp_switch
     retain: true
+  '0x00158d000309939d':
+    friendly_name: washer_door
+    retain: false
+  '0x00158d0002821ea3':
+    friendly_name: bathroom_leak
+    retain: false
