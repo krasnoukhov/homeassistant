@@ -76,6 +76,18 @@ sensor:
     value_template: "{{ value }}"
     unit_of_measurement: kg
     expire_after: 172800
+  - platform: template
+    sensors:
+      tv_power:
+        friendly_name: tv-power
+        unit_of_measurement: watt
+        value_template: |
+          {{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float }}
+      washer_power:
+        friendly_name: washer-power
+        unit_of_measurement: watt
+        value_template: |
+          {{ state_attr('switch.bathroom_outlet_washer', 'current_power_w')|float }}
 
 binary_sensor:
   - platform: template
