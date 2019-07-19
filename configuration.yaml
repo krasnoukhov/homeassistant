@@ -56,6 +56,7 @@ homekit:
       - switch.0x00124b001838d9fe_switch_right
       - switch.livingroom_outlet_tv
       - switch.bathroom_outlet_washer
+      - switch.kitchen_outlet_dishwasher
 
 apple_tv:
   - host: 192.168.1.15
@@ -88,6 +89,11 @@ sensor:
         unit_of_measurement: watt
         value_template: |
           {{ state_attr('switch.bathroom_outlet_washer', 'current_power_w')|float }}
+      dishwasher_power:
+        friendly_name: dishwasher-power
+        unit_of_measurement: watt
+        value_template: |
+          {{ state_attr('switch.kitchen_outlet_dishwasher', 'current_power_w')|float }}
 
 binary_sensor:
   - platform: template
@@ -112,6 +118,11 @@ switch:
     mac: !secret bathroom_outlet_washer_mac
     type: sp3
     friendly_name: bathroom-outlet-washer
+  - platform: broadlink
+    host: 192.168.1.23
+    mac: !secret kitchen_outlet_dishwasher_mac
+    type: sp3
+    friendly_name: kitchen-outlet-dishwasher
 
 climate:
   - platform: smartir

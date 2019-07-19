@@ -168,6 +168,10 @@ switch.bathroom_outlet_washer:
   friendly_name: bathroom-outlet-washer
   icon: mdi:washing-machine
 
+switch.kitchen_outlet_dishwasher:
+  friendly_name: kitchen-outlet-dishwasher
+  icon: mdi:dishwasher
+
 # IKEA
 
 light.0x000d6ffffe4872d8_light:
