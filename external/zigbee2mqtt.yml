@@ -82,16 +82,19 @@ devices:
     retain: true
   '0x00158d000309939d':
     friendly_name: washer_door
-    retain: false
+    retain: true
   '0x00158d0002821ea3':
     friendly_name: bathroom_leak
-    retain: false
+    retain: true
   '0x00158d0002c957d1':
     friendly_name: dishwasher_door
-    retain: false
+    retain: true
   '0x00158d00028a09a5':
     friendly_name: kitchen_leak
-    retain: false
+    retain: true
   '0x00158d0002c9584d':
     friendly_name: entrance_door
-    retain: false
+    retain: true
+  '0x00124b00194a06da':
+    friendly_name: bedroom_router
+    retain: true

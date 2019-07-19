@@ -157,6 +157,11 @@ sensor.0x00158d0002c9584d_linkquality:
 sensor.0x00158d0002c9584d_battery:
   friendly_name: entrance-door-battery
 
+binary_sensor.0x00124b00194a06da_router:
+  friendly_name: bedroom-router
+sensor.0x00124b00194a06da_linkquality:
+  friendly_name: bedroom-router-link
+
 # Broadlink
 
 switch.bathroom_outlet_washer:
