@@ -124,6 +124,7 @@ sensor.0x00158d0002bfea67_battery:
 
 binary_sensor.0x00158d000309939d_contact:
   friendly_name: washer-door
+  icon: mdi:glassdoor
 sensor.0x00158d000309939d_linkquality:
   friendly_name: washer-door-link
 sensor.0x00158d000309939d_battery:
@@ -138,6 +139,7 @@ sensor.0x00158d0002821ea3_battery:
 
 binary_sensor.0x00158d0002c957d1_contact:
   friendly_name: dishwasher-door
+  icon: mdi:glassdoor
 sensor.0x00158d0002c957d1_linkquality:
   friendly_name: dishwasher-door-link
 sensor.0x00158d0002c957d1_battery:

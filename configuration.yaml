@@ -140,3 +140,23 @@ media_player:
     device_code: 1020
     controller_data: 192.168.1.20
     power_sensor: binary_sensor.livingroom_outlet_tv_state
+
+input_select:
+  washer_status:
+    name: washer-status
+    icon: mdi:washing-machine
+    options:
+      - idle
+      - running
+      - clean
+      - open
+    initial: idle
+  dishwasher_status:
+    name: dishwasher-status
+    icon: mdi:dishwasher
+    options:
+      - dirty
+      - running
+      - clean
+      - open
+    initial: dirty

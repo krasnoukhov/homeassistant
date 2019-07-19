@@ -86,3 +86,127 @@
   action:
     service: light.toggle
     entity_id: group.kitchen_lamp
+
+# Washer
+
+- alias: set-washer-running
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.washer_power
+    above: 1
+  condition:
+    condition: template
+    value_template: |
+      {{ states('input_select.washer_status') != 'running' }}
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.washer_status
+      option: running
+
+- alias: set-washer-clean
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.washer_power
+    below: 1
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_select.washer_status
+    state: running
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.washer_status
+      option: clean
+
+- alias: set-washer-open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d000309939d_contact
+    to: "on"
+  condition:
+    condition: state
+    entity_id: input_select.washer_status
+    state: clean
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.washer_status
+      option: open
+
+- alias: set-washer-idle
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d000309939d_contact
+    to: "off"
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.washer_status
+      option: idle
+
+# Dishwasher
+
+- alias: set-dishwasher-running
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dishwasher_power
+    above: 3
+  condition:
+    condition: template
+    value_template: |
+      {{ states('input_select.dishwasher_status') != 'running' }}
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: running
+
+- alias: set-dishwasher-clean
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dishwasher_power
+    below: 2
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: input_select.dishwasher_status
+    state: running
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: clean
+
+- alias: set-dishwasher-open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d0002c957d1_contact
+    to: "on"
+  condition:
+    condition: numeric_state
+    entity_id: sensor.dishwasher_power
+    below: 2
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: open
+
+- alias: set-dishwasher-dirty
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d0002c957d1_contact
+    to: "off"
+  condition:
+    condition: numeric_state
+    entity_id: sensor.dishwasher_power
+    below: 2
+  action:
+    service: input_select.select_option
+    data:
+      entity_id: input_select.dishwasher_status
+      option: dirty
