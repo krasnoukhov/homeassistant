@@ -1,0 +1,23 @@
+{
+  "mqtt": {
+    "identifier": "roborock",
+    "topicPrefix": "valetudo",
+    "autoconfPrefix": "homeassistant",
+    "broker_url": "mqtt://homeassistant:privet@localhost",
+    "caPath": "",
+    "mapSettings": {
+      "drawPath": true,
+      "drawCharger": true,
+      "drawRobot": true,
+      "border": 2,
+      "scale": 4
+    },
+    "mapDataTopic": "valetudo/roborock/map_data",
+    "minMillisecondsBetweenMapUpdates": 10000,
+    "publishMapImage": true
+  },
+  "webserver": {
+    "enabled": true,
+    "port": 3001
+  }
+}

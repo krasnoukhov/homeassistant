@@ -1,0 +1,24 @@
+{
+  "spots": [],
+  "areas": [],
+  "mqtt": {
+    "enabled": true,
+    "identifier": "roborock",
+    "topicPrefix": "valetudo",
+    "autoconfPrefix": "homeassistant",
+    "broker_url": "mqtt://homeassistant:privet@192.168.1.2",
+    "provideMapData": true,
+    "caPath": ""
+  },
+  "dummycloud": {
+    "spoofedIP": "203.0.113.1",
+    "bindIP": "127.0.0.1"
+  },
+  "httpAuth": {
+    "enabled": false,
+    "username": "valetudo",
+    "password": "valetudo"
+  },
+  "allowSSHKeyUpload": true,
+  "map_upload_host": "http://127.0.0.1"
+}

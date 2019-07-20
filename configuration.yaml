@@ -17,6 +17,7 @@ tts:
 
 mqtt:
   discovery: true
+  discovery_prefix: homeassistant
   password: !secret mqtt_password
   birth_message:
     topic: hass/status
