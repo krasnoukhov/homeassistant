@@ -1,13 +1,94 @@
 {
-  "spots": [],
-  "areas": [],
+  "spots": [
+    [
+      "toilet",
+      31079,
+      21332
+    ]
+  ],
+  "areas": [
+    [
+      "kitchen",
+      [
+        [
+          32889,
+          20197,
+          36064,
+          24622,
+          1
+        ]
+      ]
+    ],
+    [
+      "hallway",
+      [
+        [
+          28200,
+          24450,
+          35500,
+          26900,
+          1
+        ],
+        [
+          29703,
+          23143,
+          31884,
+          24485,
+          1
+        ],
+        [
+          28230,
+          23623,
+          29418,
+          24536,
+          1
+        ]
+      ]
+    ],
+    [
+      "bathroom",
+      [
+        [
+          29600,
+          20100,
+          32312,
+          23195,
+          1
+        ]
+      ]
+    ],
+    [
+      "livingroom",
+      [
+        [
+          23383,
+          23640,
+          28270,
+          26763,
+          1
+        ]
+      ]
+    ],
+    [
+      "bedroom",
+      [
+        [
+          23743,
+          20385,
+          29675,
+          23731,
+          1
+        ]
+      ]
+    ]
+  ],
   "mqtt": {
     "enabled": true,
     "identifier": "roborock",
     "topicPrefix": "valetudo",
     "autoconfPrefix": "homeassistant",
     "broker_url": "mqtt://homeassistant:privet@192.168.1.2",
-    "provideMapData": true,
+    "provideMapData": false,
     "caPath": ""
   },
   "dummycloud": {
