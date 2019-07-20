@@ -1,3 +1,8 @@
+people:
+  entities:
+    - person.daria
+    - person.dmitry
+
 all_turnable_entities:
   name: all-turnable-entities
   entities:

@@ -89,11 +89,19 @@ sensor:
         unit_of_measurement: watt
         value_template: |
           {{ state_attr('switch.bathroom_outlet_washer', 'current_power_w')|float }}
+      washer_status:
+        friendly_name: washer-status
+        value_template: |
+          {{ states('input_select.washer_status') }}
       dishwasher_power:
         friendly_name: dishwasher-power
         unit_of_measurement: watt
         value_template: |
           {{ state_attr('switch.kitchen_outlet_dishwasher', 'current_power_w')|float }}
+      dishwasher_status:
+        friendly_name: dishwasher-status
+        value_template: |
+          {{ states('input_select.dishwasher_status') }}
 
 binary_sensor:
   - platform: template
@@ -160,3 +168,18 @@ input_select:
       - clean
       - open
     initial: dirty
+
+notify:
+  - name: dmitry
+    platform: group
+    services:
+      - service: ios_krasnoukhov_iphone
+  - name: daria
+    platform: group
+    services:
+      - service: ios_darias_iphone
+  - name: people
+    platform: group
+    services:
+      - service: ios_krasnoukhov_iphone
+      - service: ios_darias_iphone

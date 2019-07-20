@@ -221,7 +221,11 @@ media_player.livingroom_tv:
 media_player.apple_tv:
   friendly_name: apple-tv
   icon: mdi:television-guide
-sensor.krasnoukhov_weight:
-  friendly_name: krasnoukhovweight
 sensor.pi_hole_ads_blocked_today:
   friendly_name: ads-blocked
+sensor.washer_status:
+  icon: mdi:washing-machine
+  device_class: connectivity
+sensor.dishwasher_status:
+  icon: mdi:dishwasher
+  device_class: connectivity
