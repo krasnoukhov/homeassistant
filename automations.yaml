@@ -7,15 +7,6 @@
     - service: homekit.start
     - service: script.turn_off_tv
 
-- alias: someone-home
-  trigger:
-    platform: state
-    entity_id: person.daria, person.dmitry
-    to: home
-  action:
-    - service: switch.turn_on
-      entity_id: switch.0x00124b00180358d3_switch_left
-
 - alias: everyone-left
   trigger:
     platform: state
@@ -85,6 +76,19 @@
   action:
     service: light.toggle
     entity_id: group.kitchen_lamp
+
+- alias: entrance-door-open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d0002c9584d_contact
+    to: "on"
+  condition:
+    condition: state
+    entity_id: group.people
+    state: not_home
+  action:
+    - service: switch.turn_on
+      entity_id: switch.0x00124b00180358d3_switch_left
 
 # Washer
 

@@ -92,7 +92,7 @@ sensor:
       washer_state:
         friendly_name: washer-state
         value_template: |
-          {{ states('input_select.washer_status') }}
+          {{ states('input_select.washer_status')|capitalize }}
       dishwasher_power:
         friendly_name: dishwasher-power
         unit_of_measurement: watt
@@ -101,7 +101,7 @@ sensor:
       dishwasher_state:
         friendly_name: dishwasher-state
         value_template: |
-          {{ states('input_select.dishwasher_status') }}
+          {{ states('input_select.dishwasher_status')|capitalize }}
 
 binary_sensor:
   - platform: template
