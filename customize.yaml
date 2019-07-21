@@ -223,9 +223,7 @@ media_player.apple_tv:
   icon: mdi:television-guide
 sensor.pi_hole_ads_blocked_today:
   friendly_name: ads-blocked
-sensor.washer_status:
+sensor.washer_state:
   icon: mdi:washing-machine
-  device_class: connectivity
-sensor.dishwasher_status:
+sensor.dishwasher_state:
   icon: mdi:dishwasher
-  device_class: connectivity
