@@ -262,3 +262,52 @@
     data:
       entity_id: input_select.dishwasher_status
       option: dirty
+
+- alias: send-dishwasher-alert
+  trigger:
+    - platform: state
+      entity_id: input_select.dishwasher_status
+      to: clean
+      for:
+        minutes: 1
+    - platform: state
+      entity_id: person.daria, person.dmitry
+      to: home
+      for:
+        minutes: 5
+    - platform: time
+      at: "10:15:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_select.dishwasher_status
+        state: clean
+      - condition: state
+        entity_id: group.people
+        state: home
+      - condition: time
+        before: "23:59:00"
+        after: "10:00:00"
+      - condition: template
+        value_template: >-
+          {%- if states.automation.send_dishwasher_alert.last_triggered is not none -%}
+            {%- if as_timestamp(now())|int - as_timestamp(states.automation.send_dishwasher_alert.attributes.last_triggered)|int > 1800 -%}
+              true
+            {%- else -%}
+              false
+            {%- endif -%}
+          {%- else -%}
+            false
+          {%- endif -%}
+  action:
+    - service_template: >
+        {% if (is_state('person.dmitry', 'home')) and (is_state('person.daria', 'home')) %}
+          notify.people
+        {% elif is_state('person.dmitry', 'home') %}
+          notify.dmitry
+        {% elif is_state('person.daria', 'home') %}
+          notify.daria
+        {% endif %}
+      data:
+        message: Hey, the dishwasher has finished and is ready to be emptied
