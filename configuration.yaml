@@ -43,9 +43,11 @@ homekit:
       - automation
       - device_tracker
       - remote
+      - script
     exclude_entities:
       - binary_sensor.remote_ui
       - binary_sensor.livingroom_outlet_tv_state
+      - binary_sensor.0x00124b00194a06da_router
       - switch.0x00124b001838b864_switch_right
       - switch.0x00124b0018028fd6_switch_right
       - switch.0x00124b0018034c86_switch_right
