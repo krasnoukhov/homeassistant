@@ -9,7 +9,7 @@ tts/
 .ios.conf
 .HA_VERSION
 *.log
-*.db
+*.db*
 
 secrets.yaml
 known_devices.yaml

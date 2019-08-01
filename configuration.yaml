@@ -93,6 +93,12 @@ sensor:
           {{ state_attr('switch.bathroom_outlet_washer', 'current_power_w')|float }}
       washer_state:
         friendly_name: washer-state
+        icon_template: |
+          {% if is_state('input_select.washer_status', 'clean') %}
+            mdi:home-alert
+          {% else %}
+            mdi:washing-machine
+          {% endif %}
         value_template: |
           {{ states('input_select.washer_status')|capitalize }}
       dishwasher_power:
@@ -102,6 +108,12 @@ sensor:
           {{ state_attr('switch.kitchen_outlet_dishwasher', 'current_power_w')|float }}
       dishwasher_state:
         friendly_name: dishwasher-state
+        icon_template: |
+          {% if is_state('input_select.dishwasher_status', 'clean') %}
+            mdi:home-alert
+          {% else %}
+            mdi:dishwasher
+          {% endif %}
         value_template: |
           {{ states('input_select.dishwasher_status')|capitalize }}
 
