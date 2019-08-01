@@ -96,7 +96,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.washer_power
-    above: 1.1
+    above: "1.1"
   condition:
     condition: template
     value_template: |
@@ -111,7 +111,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.washer_power
-    below: 1.1
+    below: "1.1"
     for:
       minutes: 3
   condition:
