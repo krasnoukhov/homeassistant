@@ -59,6 +59,38 @@
         light.0x000d6ffffe12c0c2_light
         {%- endif -%}
 
+- alias: configure-bedside-lamp
+  trigger:
+    - platform: state
+      entity_id: sensor.0x00158d0002043eb9_click
+      to: double
+    - platform: state
+      entity_id: sensor.0x00158d0002008fd6_click
+      to: double
+    - platform: state
+      entity_id: sensor.0x00158d0002043eb9_click
+      to: triple
+    - platform: state
+      entity_id: sensor.0x00158d0002008fd6_click
+      to: triple
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: >-
+        {%- if (trigger.entity_id == "sensor.0x00158d0002043eb9_click") -%}
+        light.0xd0cf5efffefc876e_light
+        {%- else -%}
+        light.0x000d6ffffe12c0c2_light
+        {%- endif -%}
+      brightness: >-
+        {%- if (trigger.to_state.state == "double") -%}
+        1
+        {%- elif (trigger.entity_id == "sensor.0x00158d0002043eb9_click") -%}
+        {{ state_attr("light.0xd0cf5efffefc876e_light", "brightness") + 51 }}
+        {%- else -%}
+        {{ state_attr("light.0x000d6ffffe12c0c2_light", "brightness") + 51 }}
+        {%- endif -%}
+
 - alias: toggle-livingroom-lamp
   trigger:
     platform: state
