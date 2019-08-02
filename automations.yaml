@@ -90,6 +90,17 @@
     - service: switch.turn_on
       entity_id: switch.0x00124b00180358d3_switch_left
 
+- alias: send-leak-alert
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d00028a09a5_water_leak, binary_sensor.0x00158d0002821ea3_water_leak
+    to: "on"
+  action:
+    service: notify.people
+    data_template:
+      message: |
+        {{ trigger.from_state.name }} reports a leak, check it out
+
 # Washer
 
 - alias: set-washer-running
