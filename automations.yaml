@@ -185,7 +185,7 @@
               false
             {%- endif -%}
           {%- else -%}
-            false
+            true
           {%- endif -%}
   action:
     - service_template: >
@@ -298,7 +298,7 @@
               false
             {%- endif -%}
           {%- else -%}
-            false
+            true
           {%- endif -%}
   action:
     - service_template: >
@@ -311,3 +311,56 @@
         {% endif %}
       data:
         message: Hey, the dishwasher has finished and is ready to be emptied
+
+# Vacuum
+
+- alias: send-vacuum-start-reminder
+  trigger:
+    platform: state
+    entity_id: person.daria, person.dmitry
+    to: home
+    for:
+      minutes: 5
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - tue
+      - condition: template
+        value_template: >-
+          {%- if states.automation.send_vacuum_start_reminder.last_triggered is not none -%}
+            {%- if as_timestamp(now())|int - as_timestamp(states.automation.send_vacuum_start_reminder.attributes.last_triggered)|int > 86400 -%}
+              true
+            {%- else -%}
+              false
+            {%- endif -%}
+          {%- else -%}
+            true
+          {%- endif -%}
+  action:
+    - service_template: >
+        {% if (is_state('person.dmitry', 'home')) and (is_state('person.daria', 'home')) %}
+          notify.people
+        {% elif is_state('person.dmitry', 'home') %}
+          notify.dmitry
+        {% elif is_state('person.daria', 'home') %}
+          notify.daria
+        {% endif %}
+      data:
+        message: Would you like to start the vacuum?
+        data:
+          push:
+            category: vacuum
+
+- alias: start-the-vacuum
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: START_CLEANING
+  action:
+    service: vacuum.start
+    data:
+      entity_id: vacuum.roborock

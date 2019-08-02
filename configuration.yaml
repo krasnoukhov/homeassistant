@@ -195,3 +195,12 @@ notify:
     services:
       - service: ios_krasnoukhov_iphone
       - service: ios_darias_iphone
+
+ios:
+  push:
+    categories:
+      - name: vacuum
+        identifier: vacuum
+        actions:
+          - identifier: START_CLEANING
+            title: Start cleaning
