@@ -133,6 +133,29 @@
       message: |
         {{ trigger.from_state.name }} reports a leak, check it out
 
+- alias: toggle-theater-mode
+  trigger:
+    - platform: state
+      entity_id: media_player.apple_tv
+      to: playing
+      for:
+        seconds: 10
+    - platform: state
+      entity_id: media_player.apple_tv
+      to: idle
+      for:
+        seconds: 10
+  condition:
+    condition: state
+    entity_id: group.livingroom_lamp
+    state: "on"
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.livingroom_lamp
+      brightness_pct: >-
+        {% if (trigger.to_state.state == "playing") %}50{% else %}100{% endif %}
+
 # Washer
 
 - alias: set-washer-running
