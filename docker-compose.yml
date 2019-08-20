@@ -1,0 +1,79 @@
+version: "3"
+services:
+  datadog:
+    container_name: datadog
+    image: benevolentcoders/rpi-datadog-agent
+    env_file:
+      - datadog.env
+    ports:
+      - 8125:8125/udp
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - /proc/:/host/proc/:ro
+     - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    hostname: raspberrypi
+  unifi:
+    container_name: unifi
+    image: linuxserver/unifi-controller
+    volumes:
+      - ./.data/unifi:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MEM_LIMIT=256M
+    ports:
+      - 3478:3478/udp
+      - 10001:10001/udp
+      - 9090:8080
+      - 8081:8081
+      - 8443:8443
+      - 8843:8843
+      - 8880:8880
+      - 6789:6789
+    restart: unless-stopped
+  pihole:
+    container_name: pihole
+    image: pihole/pihole
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 80:80/tcp
+      - 443:443/tcp
+    volumes:
+       - ./.data/pihole/etc-pihole:/etc/pihole/
+       - ./.data/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+  zigbee2mqtt:
+    container_name: zigbee2mqtt
+    image: koenkk/zigbee2mqtt
+    volumes:
+      - ./.data/zigbee2mqtt:/app/data
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    network_mode: host
+    restart: always
+  homeassistant:
+    container_name: home-assistant
+    image: homeassistant/raspberrypi3-homeassistant
+    volumes:
+      - ./:/config
+    ports:
+      - 1883:1883
+      - 8080:8080
+    restart: always
+    network_mode: host
+  # mqtt:
+  #   restart: unless-stopped
+  #   image: eclipse-mosquitto:latest
+  #   ports:
+  #     - 0.0.0.0:4105:1883
+  #   volumes:
+  #     - .docker/data/mosquitto:/mosquitto/data
+  #     - .docker/log/mosquitto.log:/mosquitto/log/mosquitto.log
+  #     - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf

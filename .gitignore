@@ -4,12 +4,14 @@ deps/
 tts/
 .storage/
 .cloud/
+.data/
 
 .homekit.state
 .ios.conf
 .HA_VERSION
 *.log
 *.db*
+*.env
 
 secrets.yaml
 known_devices.yaml
