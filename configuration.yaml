@@ -17,7 +17,7 @@ tts:
 
 mqtt:
   discovery: true
-  password: !secret mqtt_password
+  broker: 192.168.1.2
   birth_message:
     topic: hass/status
     payload: online

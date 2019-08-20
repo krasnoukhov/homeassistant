@@ -12,6 +12,7 @@ services:
      - /proc/:/host/proc/:ro
      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
     hostname: raspberrypi
+    restart: unless-stopped
   unifi:
     container_name: unifi
     image: linuxserver/unifi-controller
@@ -57,23 +58,22 @@ services:
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     network_mode: host
-    restart: always
+    restart: unless-stopped
+  mqtt:
+    container_name: mqtt
+    image: eclipse-mosquitto:latest
+    ports:
+      - 1883:1883
+    volumes:
+      - ./.data/mosquitto/data:/mosquitto/data
+      - ./.data/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
   homeassistant:
     container_name: home-assistant
     image: homeassistant/raspberrypi3-homeassistant
     volumes:
       - ./:/config
-    ports:
-      - 1883:1883
-      - 8080:8080
-    restart: always
+    depends_on:
+      - mqtt
     network_mode: host
-  # mqtt:
-  #   restart: unless-stopped
-  #   image: eclipse-mosquitto:latest
-  #   ports:
-  #     - 0.0.0.0:4105:1883
-  #   volumes:
-  #     - .docker/data/mosquitto:/mosquitto/data
-  #     - .docker/log/mosquitto.log:/mosquitto/log/mosquitto.log
-  #     - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
