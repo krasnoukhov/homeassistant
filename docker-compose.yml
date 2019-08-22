@@ -53,6 +53,8 @@ services:
   zigbee2mqtt:
     container_name: zigbee2mqtt
     image: koenkk/zigbee2mqtt
+    # environment:
+    #   - DEBUG=*
     volumes:
       - ./.data/zigbee2mqtt:/app/data
     devices:
@@ -76,4 +78,14 @@ services:
     depends_on:
       - mqtt
     network_mode: host
+    restart: unless-stopped
+  z2ma:
+    container_name: z2ma
+    image: carldebilly/zigbee2mqttassistant
+    environment:
+      - Z2MA_SETTINGS__MQTTSERVER=192.168.1.2
+    ports:
+      - 8881:80
+    depends_on:
+      - mqtt
     restart: unless-stopped

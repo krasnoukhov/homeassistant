@@ -4,6 +4,7 @@ experimental:
   livolo: true
 advanced:
   channel: 26
+  last_seen: ISO_8601
 serial:
   port: /dev/ttyACM0
 mqtt:
@@ -70,13 +71,11 @@ devices:
     retain: true
     debounce: 0.1
   '0x00158d0002043eb9':
-    friendly_name: bedroom_lamp_left
+    friendly_name: bedroom_lamp_left_switch
     retain: true
-    debounce: 0.1
   '0x00158d0002008fd6':
-    friendly_name: bedroom_lamp_right
+    friendly_name: bedroom_lamp_right_switch
     retain: true
-    debounce: 0.1
   '0x00158d0002bfea67':
     friendly_name: kitchen_lamp_switch
     retain: true
