@@ -58,16 +58,28 @@ sensor:
   - platform: pi_hole
   - platform: mqtt
     name: krasnoukhov_weight
-    state_topic: miscale/krasnoukhov_weight/kg
-    value_template: "{{ value }}"
+    state_topic: miscale/weight/kg
+    value_template: >-
+      {%- if value|float >= 70 -%}
+        {{ value }}
+      {%- else -%}
+        {{ state_attr('sensor.krasnoukhov_weight') }}
+      {%- endif -%}
     unit_of_measurement: kg
     expire_after: 172800
+    force_update: true
   - platform: mqtt
     name: darianiff_weight
-    state_topic: miscale/darianiff_weight/kg
-    value_template: "{{ value }}"
+    state_topic: miscale/weight/kg
+    value_template: >-
+      {%- if value|float < 70 -%}
+        {{ value }}
+      {%- else -%}
+        {{ state_attr('sensor.darianiff_weight') }}
+      {%- endif -%}
     unit_of_measurement: kg
     expire_after: 172800
+    force_update: true
   - platform: template
     sensors:
       tv_power:

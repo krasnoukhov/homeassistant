@@ -1,0 +1,16 @@
+mqtt:
+  host: 192.168.1.2
+manager:
+  sensor_config:
+    topic: homeassistant
+    retain: true
+  topic_subscription:
+    update_all:
+      topic: homeassistant/status
+      payload: online
+  workers:
+    miscale:
+      args:
+        mac: 88:0F:10:85:45:86
+        topic_prefix: miscale
+      update_interval: 300

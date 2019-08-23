@@ -77,6 +77,7 @@ services:
       - ./:/config
     depends_on:
       - mqtt
+      - unifi
     network_mode: host
     restart: unless-stopped
   z2ma:
@@ -88,4 +89,16 @@ services:
       - 8881:80
     depends_on:
       - mqtt
+    restart: unless-stopped
+  bt2mqtt:
+    container_name: bt2mqtt
+    build: ../bt-mqtt-gateway
+    volumes:
+      - ./.data/bt2mqtt:/config/
+    depends_on:
+      - mqtt
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     restart: unless-stopped
