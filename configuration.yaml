@@ -80,6 +80,12 @@ sensor:
     unit_of_measurement: kg
     expire_after: 172800
     force_update: true
+  - platform: mqtt
+    name: zigbee_map
+    state_topic: zigbee2mqtt/bridge/networkmap/raw
+    value_template: >-
+      {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+    json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
   - platform: template
     sensors:
       tv_power:
