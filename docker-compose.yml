@@ -72,7 +72,7 @@ services:
     restart: unless-stopped
   homeassistant:
     container_name: home-assistant
-    image: homeassistant/raspberrypi3-homeassistant
+    image: homeassistant/raspberrypi4-homeassistant:stable
     volumes:
       - ./:/config
     depends_on:
