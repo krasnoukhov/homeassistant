@@ -60,10 +60,10 @@ sensor:
     name: krasnoukhov_weight
     state_topic: miscale/weight/kg
     value_template: >-
-      {%- if value|float >= 70 -%}
+      {%- if value|float >= 70 and is_state('person.dmitry', 'home') -%}
         {{ value }}
       {%- else -%}
-        {{ state_attr('sensor.krasnoukhov_weight') }}
+        {{ states('sensor.krasnoukhov_weight') }}
       {%- endif -%}
     unit_of_measurement: kg
     expire_after: 172800
@@ -72,10 +72,10 @@ sensor:
     name: darianiff_weight
     state_topic: miscale/weight/kg
     value_template: >-
-      {%- if value|float < 70 -%}
+      {%- if value|float < 70 and value|float > 30 and is_state('person.daria', 'home') -%}
         {{ value }}
       {%- else -%}
-        {{ state_attr('sensor.darianiff_weight') }}
+        {{ states('sensor.darianiff_weight') }}
       {%- endif -%}
     unit_of_measurement: kg
     expire_after: 172800
