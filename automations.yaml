@@ -392,16 +392,16 @@
     conditions:
       - condition: time
         weekday:
-          - sun
-          - tue
+          - sat
+          - mon
       - condition: template
         value_template: >-
-          {%- if states.automation.send_vacuum_start_reminder.last_triggered is not none -%}
-            {%- if as_timestamp(now())|int - as_timestamp(states.automation.send_vacuum_start_reminder.attributes.last_triggered)|int > 86400 -%}
-              true
-            {%- else -%}
-              false
-            {%- endif -%}
+          {%- set unix = as_timestamp(now())|int -%}
+          {%- set interval = 86400 -%}
+          {%- if unix - (state_attr("vacuum.roborock", "last_run_stats").endTime / 1000) < interval -%}
+            false
+          {%- elif unix - as_timestamp(state_attr("automation.send_vacuum_start_reminder", "last_triggered"))|int < interval -%}
+            false
           {%- else -%}
             true
           {%- endif -%}
@@ -418,14 +418,14 @@
         message: Would you like to start the vacuum?
         data:
           push:
-            category: vacuum
+            category: start_vacuum
 
-- alias: start-the-vacuum
+- alias: start-vacuum
   trigger:
     platform: event
     event_type: ios.notification_action_fired
     event_data:
-      actionName: START_CLEANING
+      actionName: START_VACUUM
   action:
     service: vacuum.start
     data:

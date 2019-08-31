@@ -5,6 +5,7 @@ tts/
 .storage/
 .cloud/
 .data/
+www/community
 
 .homekit.state
 .ios.conf

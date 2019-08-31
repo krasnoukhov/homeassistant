@@ -123,6 +123,16 @@ sensor:
           {% endif %}
         value_template: |
           {{ states('input_select.dishwasher_status')|capitalize }}
+  - platform: rest
+    resource: http://192.168.1.25/api/map/latest
+    name: roborock_map
+    json_attributes:
+      - image
+      - path
+      - charger
+      - robot
+    value_template: "OK"
+    scan_interval: 30
 
 binary_sensor:
   - platform: template
@@ -206,8 +216,8 @@ notify:
 ios:
   push:
     categories:
-      - name: vacuum
-        identifier: vacuum
+      - name: start-vacuum
+        identifier: start_vacuum
         actions:
-          - identifier: START_CLEANING
+          - identifier: START_VACUUM
             title: Start cleaning
