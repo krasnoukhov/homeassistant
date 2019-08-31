@@ -92,7 +92,7 @@ services:
     restart: unless-stopped
   bt2mqtt:
     container_name: bt2mqtt
-    build: ../bt-mqtt-gateway
+    image: zewelor/bt-mqtt-gateway
     volumes:
       - ./.data/bt2mqtt:/config/
     depends_on:
