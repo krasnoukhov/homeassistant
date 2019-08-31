@@ -2,22 +2,21 @@ version: "3"
 services:
   datadog:
     container_name: datadog
-    image: benevolentcoders/rpi-datadog-agent
+    image: achntrl/datadog-agent
     env_file:
       - datadog.env
     ports:
       - 8125:8125/udp
     volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - /proc/:/host/proc/:ro
-     - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+      - ./.data/datadog/datadog.yaml:/etc/datadog-agent/datadog.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
     hostname: raspberrypi
     restart: unless-stopped
   unifi:
     container_name: unifi
     image: linuxserver/unifi-controller
-    volumes:
-      - ./.data/unifi:/config
     environment:
       - PUID=1000
       - PGID=1000
@@ -31,6 +30,8 @@ services:
       - 8843:8843
       - 8880:8880
       - 6789:6789
+    volumes:
+      - ./.data/unifi:/config
     restart: unless-stopped
   pihole:
     container_name: pihole

@@ -1,0 +1,8 @@
+log_level: warn
+jmx_use_cgroup_memory_limit: true
+dogstatsd_non_local_traffic: true
+listeners:
+  - name: docker
+config_providers:
+  - name: docker
+    polling: true
