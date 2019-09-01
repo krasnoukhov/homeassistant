@@ -135,6 +135,17 @@ sensor:
     display_options:
       - time
       - date
+  - platform: unifigateway
+    host: 192.168.1.2
+    username: homeassistant
+    password: !secret unifi_password
+    monitored_conditions:
+      - www
+      - lan
+      - wan
+      - wlan
+      - alerts
+      - firmware
 
 binary_sensor:
   - platform: template

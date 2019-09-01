@@ -223,3 +223,5 @@ media_player.apple_tv:
   icon: mdi:television-guide
 sensor.pi_hole_ads_blocked_today:
   friendly_name: ads-blocked
+sensor.unifi_gateway_www:
+  friendly_name: internet
