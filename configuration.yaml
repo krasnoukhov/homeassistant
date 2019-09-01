@@ -133,6 +133,10 @@ sensor:
       - robot
     value_template: "OK"
     scan_interval: 30
+  - platform: time_date
+    display_options:
+      - time
+      - date
 
 binary_sensor:
   - platform: template

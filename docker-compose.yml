@@ -8,7 +8,7 @@ services:
     ports:
       - 8125:8125/udp
     volumes:
-      - ./.data/datadog/datadog.yaml:/etc/datadog-agent/datadog.yaml
+      - ./external/datadog.yaml:/etc/datadog-agent/datadog.yaml
       - /var/run/docker.sock:/var/run/docker.sock
       - /proc/:/host/proc/:ro
       - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
@@ -59,6 +59,7 @@ services:
     #   - DEBUG=*
     volumes:
       - ./.data/zigbee2mqtt:/app/data
+      - ./external/zigbee2mqtt.yaml:/app/data/configuration.yaml
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
     network_mode: host
@@ -70,7 +71,7 @@ services:
       - 1883:1883
     volumes:
       - ./.data/mosquitto/data:/mosquitto/data
-      - ./.data/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./external/mosquitto.conf:/mosquitto/config/mosquitto.conf
     restart: unless-stopped
   homeassistant:
     container_name: home-assistant
@@ -97,6 +98,7 @@ services:
     image: zewelor/bt-mqtt-gateway
     volumes:
       - ./.data/bt2mqtt:/config/
+      - ./external/bt2mqtt.yaml:/config/config.yaml
     depends_on:
       - mqtt
     network_mode: host
