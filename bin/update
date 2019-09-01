@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/homeassistant/.homeassistant
+cd /home/homeassistant
 git pull
