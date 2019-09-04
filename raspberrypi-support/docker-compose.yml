@@ -1,0 +1,13 @@
+version: "3"
+services:
+  bt2mqtt:
+    container_name: bt2mqtt
+    image: zewelor/bt-mqtt-gateway
+    volumes:
+      - ./.data/bt2mqtt:/config/
+      - ./bt2mqtt.yaml:/config/config.yaml
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    restart: unless-stopped
