@@ -234,3 +234,20 @@ ios:
         actions:
           - identifier: START_VACUUM
             title: Start cleaning
+
+plant:
+  calathea:
+    sensors:
+      moisture: sensor.miflora_calathea_moisture
+      battery: sensor.miflora_calathea_battery
+      temperature: sensor.miflora_calathea_temperature
+      conductivity: sensor.miflora_calathea_conductivity
+      brightness: sensor.miflora_calathea_light
+    min_moisture: 18
+    max_moisture: 65
+    min_battery: 17
+    min_conductivity: 150
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 34
+    min_brightness: 700
