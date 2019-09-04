@@ -251,3 +251,10 @@ plant:
     min_temperature: 12
     max_temperature: 34
     min_brightness: 700
+
+fan:
+  - platform: xiaomi_miio
+    host: 192.168.1.24
+    token: !secret air_purifier_token
+    name: air-purifier
+    model: zhimi.airpurifier.mc1
