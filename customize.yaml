@@ -215,6 +215,12 @@ sensor.0x000b57fffed836d2_linkquality:
 climate.livingroom_ac:
   friendly_name: livingroom-ac
   icon: mdi:air-conditioner
+climate.thermostat_bedroom_climate:
+  friendly_name: bedroom-thermostat
+fan.air_purifier:
+  icon: mdi:air-purifier
+sensor.air_purifier_aqi:
+  icon: mdi:air-filter
 media_player.livingroom_tv:
   friendly_name: livingroom-tv
   icon: mdi:television

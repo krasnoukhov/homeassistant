@@ -82,17 +82,20 @@ services:
       - mqtt
       - unifi
     network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
     restart: unless-stopped
-  # z2ma:
-  #   container_name: z2ma
-  #   image: carldebilly/zigbee2mqttassistant
-  #   environment:
-  #     - Z2MA_SETTINGS__MQTTSERVER=192.168.1.2
-  #   ports:
-  #     - 8881:80
-  #   depends_on:
-  #     - mqtt
-  #   restart: unless-stopped
+  z2ma:
+    container_name: z2ma
+    image: carldebilly/zigbee2mqttassistant
+    environment:
+      - Z2MA_SETTINGS__MQTTSERVER=192.168.1.2
+    ports:
+      - 8881:80
+    depends_on:
+      - mqtt
+    restart: unless-stopped
   bt2mqtt:
     container_name: bt2mqtt
     image: zewelor/bt-mqtt-gateway
