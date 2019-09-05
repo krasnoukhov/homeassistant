@@ -6,7 +6,7 @@ manager:
     retain: true
   topic_subscription:
     update_all:
-      topic: homeassistant/status
+      topic: hass/status
       payload: online
   workers:
     miscale:
