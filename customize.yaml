@@ -217,6 +217,8 @@ climate.livingroom_ac:
   icon: mdi:air-conditioner
 climate.thermostat_bedroom_climate:
   friendly_name: bedroom-thermostat
+climate.thermostat_kitchen_climate:
+  friendly_name: kitchen-thermostat
 fan.air_purifier:
   icon: mdi:air-purifier
 sensor.air_purifier_aqi:

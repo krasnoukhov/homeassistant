@@ -15,3 +15,13 @@ manager:
         mac: 88:0F:10:85:45:86
         topic_prefix: miscale
       update_interval: 300
+    thermostat:
+      args:
+        devices:
+          kitchen:
+            mac: 00:1A:22:0D:D4:2C
+            # discovery_temperature_topic: zigbee2mqtt/kitchen
+            # discovery_temperature_template: "{{ value_json.temperature }}"
+        topic_prefix: thermostat
+      topic_subscription: thermostat/+/+/set
+      update_interval: 60
