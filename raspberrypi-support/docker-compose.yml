@@ -3,6 +3,8 @@ services:
   bt2mqtt:
     container_name: bt2mqtt
     image: zewelor/bt-mqtt-gateway
+    environment:
+      - DEBUG=true
     volumes:
       - ./.data/bt2mqtt:/config/
       - ./bt2mqtt.yaml:/config/config.yaml

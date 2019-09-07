@@ -1,5 +1,7 @@
 mqtt:
   host: 192.168.1.2
+  client_id: bt2mqtt-support
+  topic_prefix: support
 manager:
   sensor_config:
     topic: homeassistant
