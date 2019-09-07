@@ -1,5 +1,19 @@
 version: "3"
 services:
+  datadog:
+    container_name: datadog
+    image: achntrl/datadog-agent
+    env_file:
+      - ../datadog.env
+    ports:
+      - 8125:8125/udp
+    volumes:
+      - ../external/datadog.yaml:/etc/datadog-agent/datadog.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    hostname: raspberrypi-support
+    restart: unless-stopped
   bt2mqtt:
     container_name: bt2mqtt
     image: zewelor/bt-mqtt-gateway
