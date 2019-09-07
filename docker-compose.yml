@@ -111,3 +111,12 @@ services:
       - NET_ADMIN
       - NET_RAW
     restart: unless-stopped
+  esphome:
+    container_name: esphome
+    image: esphome/esphome-armv7
+    volumes:
+      - ./external/esphome:/config
+    # devices:
+    #   - /dev/ttyUSB0:/dev/ttyUSB0
+    network_mode: host
+    restart: unless-stopped
