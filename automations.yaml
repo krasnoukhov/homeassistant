@@ -156,6 +156,17 @@
       brightness_pct: >-
         {% if (trigger.to_state.state == "playing") %}50{% else %}100{% endif %}
 
+- alias: send-plant-alert
+  trigger:
+    platform: state
+    entity_id: plant.calathea
+    to: problem
+  action:
+    service: notify.people
+    data_template:
+      message: |
+        {{ trigger.from_state.name }} reports a problem with {{ trigger.to_state.attributes.problem }}, check it out
+
 # Washer
 
 - alias: set-washer-running
