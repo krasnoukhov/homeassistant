@@ -255,7 +255,7 @@ plant:
     max_conductivity: 1000
     min_temperature: 12
     max_temperature: 34
-    min_brightness: 700
+    # min_brightness: 700
 
 fan:
   - platform: xiaomi_miio
