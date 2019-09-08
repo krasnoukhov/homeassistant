@@ -19,10 +19,36 @@
     - service: light.turn_off
       data:
         entity_id: group.all_turnable_entities
+    - service: fan.turn_off
+      data:
+        entity_id: group.all_turnable_entities
     - service: climate.turn_off
       data:
         entity_id: climate.livingroom_ac
     - service: script.turn_off_tv
+
+- alias: entrance-door-open
+  trigger:
+    platform: state
+    entity_id: binary_sensor.0x00158d0002c9584d_contact
+    to: "on"
+  condition:
+    condition: state
+    entity_id: group.people
+    state: not_home
+  action:
+    - service: switch.turn_on
+      entity_id: switch.0x00124b00180358d3_switch_left
+
+- alias: someone-home
+  trigger:
+    platform: state
+    entity_id: person.daria, person.dmitry, person.guest
+    to: home
+  action:
+    - service: fan.turn_on
+      data:
+        entity_id: fan.air_purifier
 
 - alias: bathroom-vent-timeout
   trigger:
@@ -108,19 +134,6 @@
   action:
     service: light.toggle
     entity_id: group.kitchen_lamp
-
-- alias: entrance-door-open
-  trigger:
-    platform: state
-    entity_id: binary_sensor.0x00158d0002c9584d_contact
-    to: "on"
-  condition:
-    condition: state
-    entity_id: group.people
-    state: not_home
-  action:
-    - service: switch.turn_on
-      entity_id: switch.0x00124b00180358d3_switch_left
 
 - alias: send-leak-alert
   trigger:
@@ -248,7 +261,7 @@
         entity_id: input_select.washer_status
         state: clean
       - condition: state
-        entity_id: group.people
+        entity_id: group.tenants
         state: home
       - condition: time
         before: "23:59:00"
@@ -361,7 +374,7 @@
         entity_id: input_select.dishwasher_status
         state: clean
       - condition: state
-        entity_id: group.people
+        entity_id: group.tenants
         state: home
       - condition: time
         before: "23:59:00"
