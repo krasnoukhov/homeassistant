@@ -24,6 +24,10 @@ manager:
             mac: 00:1A:22:0E:0C:EB
             discovery_temperature_topic: zigbee2mqtt/bedroom
             discovery_temperature_template: "{{ value_json.temperature }}"
+          livingroom:
+            mac: 00:1A:22:12:D8:38
+            discovery_temperature_topic: zigbee2mqtt/livingroom
+            discovery_temperature_template: "{{ value_json.temperature }}"
         topic_prefix: thermostat
       topic_subscription: thermostat/+/+/set
       update_interval: 60
