@@ -222,7 +222,6 @@ input_select:
 input_number:
   shit_scale_tare:
     name: shit-scale-tare
-    initial: 1700
     min: 1000
     max: 3000
 
