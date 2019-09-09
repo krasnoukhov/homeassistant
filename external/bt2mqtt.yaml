@@ -10,11 +10,6 @@ manager:
       topic: hass/status
       payload: online
   workers:
-    miscale:
-      args:
-        mac: 88:0F:10:85:45:86
-        topic_prefix: miscale
-      update_interval: 300
     thermostat:
       args:
         devices:
