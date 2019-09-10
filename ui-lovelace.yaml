@@ -109,6 +109,10 @@ views:
           sensors:
             - entity: sensor.0x00158d0002f2ed69_humidity
               name: Humidity
+            - entity: binary_sensor.thermostat_bedroom_window_open
+              name: Window
+            - entity: sensor.thermostat_bedroom_valve_state
+              name: Valve
           mqtt:
             mode_topic: support/thermostat/bedroom/mode/set
       climate.thermostat_livingroom_climate:
@@ -119,6 +123,10 @@ views:
           sensors:
             - entity: sensor.0x00158d0002f2ed1f_humidity
               name: Humidity
+            - entity: binary_sensor.thermostat_livingroom_window_open
+              name: Window
+            - entity: sensor.thermostat_livingroom_valve_state
+              name: Valve
           mqtt:
             mode_topic: support/thermostat/livingroom/mode/set
       climate.thermostat_kitchen_climate:
@@ -126,6 +134,11 @@ views:
         card:
           entity: climate.thermostat_kitchen_climate
           <<: *_thermostat
+          sensors:
+            - entity: binary_sensor.thermostat_kitchen_window_open
+              name: Window
+            - entity: sensor.thermostat_kitchen_valve_state
+              name: Valve
           mqtt:
             mode_topic: thermostat/kitchen/mode/set
       climate.livingroom_ac:
@@ -189,13 +202,19 @@ views:
     panel: false
     path: default_view
     title: Home
-  - badges: []
+  - badges:
+      - automation.everyone_left_climate
+      - automation.someone_home_climate
     cards:
       - entity: climate.thermostat_bedroom_climate
         <<: *_thermostat
         sensors:
           - entity: sensor.0x00158d0002f2ed69_humidity
             name: Humidity
+          - entity: binary_sensor.thermostat_bedroom_window_open
+            name: Window
+          - entity: sensor.thermostat_bedroom_valve_state
+            name: Valve
         mqtt:
           mode_topic: support/thermostat/bedroom/mode/set
       - entity: climate.thermostat_livingroom_climate
@@ -203,10 +222,19 @@ views:
         sensors:
           - entity: sensor.0x00158d0002f2ed1f_humidity
             name: Humidity
+          - entity: binary_sensor.thermostat_livingroom_window_open
+            name: Window
+          - entity: sensor.thermostat_livingroom_valve_state
+            name: Valve
         mqtt:
           mode_topic: support/thermostat/livingroom/mode/set
       - entity: climate.thermostat_kitchen_climate
         <<: *_thermostat
+        sensors:
+          - entity: binary_sensor.thermostat_kitchen_window_open
+            name: Window
+          - entity: sensor.thermostat_kitchen_valve_state
+            name: Valve
         mqtt:
           mode_topic: thermostat/kitchen/mode/set
       - type: 'custom:simple-thermostat'

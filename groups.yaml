@@ -40,3 +40,9 @@ kitchen_lamp:
   entities:
     - light.0x000d6ffffe4872d8_light
     - light.0x000b57fffed836d2_light
+
+thermostats:
+  entities:
+    - climate.thermostat_bedroom_climate
+    - climate.thermostat_livingroom_climate
+    - climate.thermostat_kitchen_climate

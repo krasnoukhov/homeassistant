@@ -27,6 +27,22 @@
         entity_id: climate.livingroom_ac
     - service: script.turn_off_tv
 
+- alias: everyone-left-climate
+  trigger:
+    platform: state
+    entity_id: group.people
+    to: not_home
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: group.thermostats
+        preset_mode: away
+    - delay: 00:00:05
+    - service: climate.set_temperature
+      data:
+        entity_id: group.thermostats
+        temperature: 17
+
 - alias: entrance-door-open
   trigger:
     platform: state
@@ -49,6 +65,44 @@
     - service: fan.turn_on
       data:
         entity_id: fan.air_purifier
+
+- alias: someone-home-climate
+  trigger:
+    platform: state
+    entity_id: person.daria, person.dmitry, person.guest
+    to: home
+  action:
+    # These are actually group.thermostats, but 0.96 oh well
+    - service: mqtt.publish
+      data:
+        topic: support/thermostat/bedroom/mode/set
+        payload: manual
+    - service: mqtt.publish
+      data:
+        topic: support/thermostat/livingroom/mode/set
+        payload: manual
+    - service: mqtt.publish
+      data:
+        topic: thermostat/kitchen/mode/set
+        payload: manual
+    - delay: 00:00:05
+    - service: climate.set_temperature
+      data:
+        entity_id: group.thermostats
+        temperature: 22
+    - delay: 00:00:05
+    - service: mqtt.publish
+      data:
+        topic: support/thermostat/bedroom/mode/set
+        payload: heat
+    - service: mqtt.publish
+      data:
+        topic: support/thermostat/livingroom/mode/set
+        payload: heat
+    - service: mqtt.publish
+      data:
+        topic: thermostat/kitchen/mode/set
+        payload: heat
 
 - alias: bathroom-vent-timeout
   trigger:
