@@ -1,0 +1,258 @@
+resources:
+  - type: module
+    url: /local/vacuum-card.js
+  - type: module
+    url: /community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+  - type: js
+    url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js
+  - type: module
+    url: /community_plugin/compact-custom-header/compact-custom-header.js
+  - type: module
+    url: /community_plugin/lovelace-card-mod/card-mod.js
+  - type: js
+    url: /community_plugin/lovelace-card-tools/card-tools.js?track=true
+  - type: js
+    url: /community_plugin/lovelace-popup-card/popup-card.js?track=true
+  - type: module
+    url: /community_plugin/simple-thermostat/simple-thermostat.js
+title: Home
+_thermostat: &_thermostat
+  type: 'custom:simple-thermostat'
+  hide:
+    away: false
+  modes:
+    auto:
+      include: false
+    heat:
+      name: boost
+    manual:
+      icon: mdi:temperature-celsius
+    eco:
+      icon: mdi:leaf
+views:
+  - badges:
+      - person.daria
+      - person.dmitry
+      - sensor.pi_hole_ads_blocked_today
+    popup_cards:
+      vacuum.roborock:
+        title: roborock
+        card:
+          type: 'custom:vacuum-card'
+          entity: vacuum.roborock
+          actions:
+            - data:
+                command: go_to
+                entity_id: vacuum.roborock
+                params:
+                  spot_id: toilet
+              icon: 'mdi:toilet'
+              name: go-for-cleanup
+              service: vacuum.send_command
+            - data:
+                command: zoned_cleanup
+                entity_id: vacuum.roborock
+                params:
+                  zone_ids:
+                    - kitchen
+              icon: 'mdi:stove'
+              name: clean-kitchen
+              service: vacuum.send_command
+            - data:
+                command: zoned_cleanup
+                entity_id: vacuum.roborock
+                params:
+                  zone_ids:
+                    - hallway
+              icon: 'mdi:door'
+              name: clean-hallway
+              service: vacuum.send_command
+            - data:
+                command: zoned_cleanup
+                entity_id: vacuum.roborock
+                params:
+                  zone_ids:
+                    - bathroom
+              icon: 'mdi:shower'
+              name: clean-bathroom
+              service: vacuum.send_command
+            - data:
+                command: zoned_cleanup
+                entity_id: vacuum.roborock
+                params:
+                  zone_ids:
+                    - livingroom
+              icon: 'mdi:television'
+              name: clean-livingroom
+              service: vacuum.send_command
+            - data:
+                command: zoned_cleanup
+                entity_id: vacuum.roborock
+                params:
+                  zone_ids:
+                    - bedroom
+              icon: 'mdi:bed-empty'
+              name: clean-bedroom
+              service: vacuum.send_command
+      sensor.zigbee_map:
+        title: zigbee
+        card:
+          type: 'custom:zigbee2mqtt-networkmap'
+          force: 800
+          entity: sensor.zigbee_map
+
+      climate.thermostat_bedroom_climate:
+        title: ''
+        card:
+          entity: climate.thermostat_bedroom_climate
+          <<: *_thermostat
+          sensors:
+            - entity: sensor.0x00158d0002f2ed69_humidity
+              name: Humidity
+          mqtt:
+            mode_topic: support/thermostat/bedroom/mode/set
+      climate.thermostat_livingroom_climate:
+        title: ''
+        card:
+          entity: climate.thermostat_livingroom_climate
+          <<: *_thermostat
+          sensors:
+            - entity: sensor.0x00158d0002f2ed1f_humidity
+              name: Humidity
+          mqtt:
+            mode_topic: support/thermostat/livingroom/mode/set
+      climate.thermostat_kitchen_climate:
+        title: ''
+        card:
+          entity: climate.thermostat_kitchen_climate
+          <<: *_thermostat
+          mqtt:
+            mode_topic: thermostat/kitchen/mode/set
+      climate.livingroom_ac:
+        title: ''
+        card:
+          entity: climate.livingroom_ac
+          type: 'custom:simple-thermostat'
+          sensors:
+            - entity: sensor.0x00158d0002f2ed1f_humidity
+              name: Humidity
+    cards:
+      - entities:
+          - entity: light.0xd0cf5efffefc876e_light
+          - entity: light.0x000d6ffffe12c0c2_light
+          - entity: fan.air_purifier
+          - entity: climate.thermostat_bedroom_climate
+          - entity: sensor.0x00158d0002f2ed69_humidity
+          - entity: sensor.air_purifier_aqi
+          - entity: plant.calathea
+          - entity: switch.0x00124b0018028fd6_switch_left
+        show_header_toggle: true
+        title: bedroom
+        type: entities
+      - entities:
+          - entity: group.livingroom_lamp
+          - entity: climate.livingroom_ac
+          - entity: climate.thermostat_livingroom_climate
+          - entity: sensor.0x00158d0002f2ed1f_humidity
+          - entity: media_player.livingroom_tv
+          - entity: media_player.apple_tv
+          - entity: vacuum.roborock
+          - entity: switch.0x00124b001803573a_switch_left
+        show_header_toggle: true
+        title: livingroom
+        type: entities
+      - entities:
+          - entity: group.kitchen_lamp
+          - entity: switch.0x00124b001838b864_switch_left
+          - entity: climate.thermostat_kitchen_climate
+          - entity: sensor.dishwasher_state
+          - entity: binary_sensor.0x00158d00028a09a5_water_leak
+        title: kitchen
+        type: entities
+      - entities:
+          - entity: switch.0x00124b00180358d3_switch_left
+          - entity: switch.0x00124b001838d9fe_switch_left
+          - entity: binary_sensor.0x00158d0002c9584d_contact
+          - entity: sensor.zigbee_map
+          - entity: sensor.unifi_gateway_www
+          - entity: counter.shit_scale_visits
+        title: hallway
+        type: entities
+      - entities:
+          - entity: switch.0x00124b001838cdfd_switch_left
+          - entity: switch.0x00124b001838cdfd_switch_right
+          - entity: sensor.washer_state
+          - entity: binary_sensor.0x00158d0002821ea3_water_leak
+        title: bathroom
+        type: entities
+    icon: 'mdi:home'
+    panel: false
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entity: climate.thermostat_bedroom_climate
+        <<: *_thermostat
+        sensors:
+          - entity: sensor.0x00158d0002f2ed69_humidity
+            name: Humidity
+        mqtt:
+          mode_topic: support/thermostat/bedroom/mode/set
+      - entity: climate.thermostat_livingroom_climate
+        <<: *_thermostat
+        sensors:
+          - entity: sensor.0x00158d0002f2ed1f_humidity
+            name: Humidity
+        mqtt:
+          mode_topic: support/thermostat/livingroom/mode/set
+      - entity: climate.thermostat_kitchen_climate
+        <<: *_thermostat
+        mqtt:
+          mode_topic: thermostat/kitchen/mode/set
+      - type: 'custom:simple-thermostat'
+        entity: climate.livingroom_ac
+        sensors:
+          - entity: sensor.0x00158d0002f2ed1f_humidity
+            name: Humidity
+    icon: 'mdi:thermostat'
+    title: Climate
+  - badges: []
+    cards:
+      - entities:
+          - sensor.krasnoukhov_weight
+          - sensor.darianiff_weight
+        type: history-graph
+      - crop:
+          bottom: 90
+          left: 100
+          right: 100
+          top: 200
+        entity: sensor.roborock_map
+        map_scale: 2
+        type: 'custom:valetudo-map-card'
+      - type: entities
+        title: shit-scale
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.shit_scale_status
+          - entity: input_number.shit_scale_tare
+          - entity: counter.shit_scale_visits
+    icon: 'mdi:timer-sand'
+    title: Temporary
+  - badges: []
+    cards:
+      - entities:
+          - entity: sensor.time
+          - entity: sensor.date
+        show_name: false
+        show_state: true
+        style: |
+          ha-card {
+            font-size: 300%;
+          }
+        type: glance
+      - entity: weather.home
+        type: weather-forecast
+    icon: 'mdi:tablet'
+    theme: slate
+    title: rPI

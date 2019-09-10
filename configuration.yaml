@@ -298,3 +298,6 @@ panel_iframe:
     title: ESPhome
     icon: mdi:memory
     url: http://192.168.1.2:6052/
+
+lovelace:
+  mode: yaml
