@@ -164,6 +164,28 @@ binary_sensor.0x00124b00194a06da_router:
 sensor.0x00124b00194a06da_linkquality:
   friendly_name: bedroom-router-link
 
+sensor.0x00158d000323089e_temperature:
+  friendly_name: kitchen-temp
+sensor.0x00158d000323089e_humidity:
+  friendly_name: kitchen-humidity
+sensor.0x00158d000323089e_pressure:
+  friendly_name: kitchen-pressure
+sensor.0x00158d000323089e_linkquality:
+  friendly_name: kitchen-link
+sensor.0x00158d000323089e_battery:
+  friendly_name: kitchen-battery
+
+sensor.0x00158d000349bfe2_temperature:
+  friendly_name: bathroom-temp
+sensor.0x00158d000349bfe2_humidity:
+  friendly_name: bathroom-humidity
+sensor.0x00158d000349bfe2_pressure:
+  friendly_name: bathroom-pressure
+sensor.0x00158d000349bfe2_linkquality:
+  friendly_name: bathroom-link
+sensor.0x00158d000349bfe2_battery:
+  friendly_name: bathroom-battery
+
 # Broadlink
 
 switch.bathroom_outlet_washer:

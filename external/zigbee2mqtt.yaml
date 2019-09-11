@@ -97,3 +97,9 @@ devices:
   '0x00124b00194a06da':
     friendly_name: bedroom_router
     retain: true
+  '0x00158d000323089e':
+    friendly_name: kitchen
+    retain: true
+  '0x00158d000349bfe2':
+    friendly_name: bathroom
+    retain: true

@@ -33,6 +33,7 @@ views:
   - badges:
       - person.daria
       - person.dmitry
+      - person.guest
       - sensor.pi_hole_ads_blocked_today
     popup_cards:
       vacuum.roborock:
@@ -135,6 +136,8 @@ views:
           entity: climate.thermostat_kitchen_climate
           <<: *_thermostat
           sensors:
+            - entity: sensor.0x00158d000323089e_humidity
+              name: Humidity
             - entity: binary_sensor.thermostat_kitchen_window_open
               name: Window
             - entity: sensor.thermostat_kitchen_valve_state
@@ -178,6 +181,7 @@ views:
           - entity: group.kitchen_lamp
           - entity: switch.0x00124b001838b864_switch_left
           - entity: climate.thermostat_kitchen_climate
+          - entity: sensor.0x00158d000323089e_humidity
           - entity: sensor.dishwasher_state
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
         title: kitchen
@@ -194,6 +198,8 @@ views:
       - entities:
           - entity: switch.0x00124b001838cdfd_switch_left
           - entity: switch.0x00124b001838cdfd_switch_right
+          - entity: sensor.0x00158d000349bfe2_temperature
+          - entity: sensor.0x00158d000349bfe2_humidity
           - entity: sensor.washer_state
           - entity: binary_sensor.0x00158d0002821ea3_water_leak
         title: bathroom
@@ -231,6 +237,8 @@ views:
       - entity: climate.thermostat_kitchen_climate
         <<: *_thermostat
         sensors:
+          - entity: sensor.0x00158d000323089e_humidity
+            name: Humidity
           - entity: binary_sensor.thermostat_kitchen_window_open
             name: Window
           - entity: sensor.thermostat_kitchen_valve_state
