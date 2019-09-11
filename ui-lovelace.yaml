@@ -95,6 +95,14 @@ views:
               icon: 'mdi:bed-empty'
               name: clean-bedroom
               service: vacuum.send_command
+          map:
+            crop:
+              bottom: 90
+              left: 150
+              right: 100
+              top: 200
+            entity: sensor.roborock_map
+            map_scale: 2
       sensor.zigbee_state:
         title: zigbee
         card:
@@ -271,18 +279,6 @@ views:
             name: Humidity
     icon: 'mdi:thermostat'
     title: Climate
-  - badges: []
-    cards:
-      - crop:
-          bottom: 90
-          left: 100
-          right: 100
-          top: 200
-        entity: sensor.roborock_map
-        map_scale: 2
-        type: 'custom:valetudo-map-card'
-    icon: 'mdi:timer-sand'
-    title: Temporary
   - badges: []
     cards:
       - entities:

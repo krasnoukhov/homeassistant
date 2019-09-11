@@ -296,6 +296,20 @@ class VacuumCard extends LitElement {
     `
   }
 
+  renderMapCard() {
+    if (this.mapCard) {
+      return this.mapCard;
+    }
+
+    this.mapCard = document.createElement('valetudo-map-card');
+    this.mapCard.setConfig(this.config.map);
+
+    // After render
+    setTimeout(() => this.mapCard.hass = this.hass);
+
+    return this.mapCard;
+  }
+
   render() {
     const {
       state,
@@ -311,6 +325,7 @@ class VacuumCard extends LitElement {
     return html`
       ${styles}
       <ha-card>
+        ${this.renderMapCard()}
         <div class="preview" @click='${(e) => this.handleMore()}' ?more-info=true>
           <div class="header">
             <div class="status">${status}</div>
