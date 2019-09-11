@@ -57,25 +57,10 @@ apple_tv:
 sensor:
   - platform: pi_hole
   - platform: mqtt
-    name: krasnoukhov_weight
-    state_topic: miscale/weight/kg
+    name: miscale_weight
+    state_topic: support/miscale/weight/kg
     value_template: >-
-      {%- if value|float >= 70 and is_state('person.dmitry', 'home') -%}
-        {{ value }}
-      {%- else -%}
-        {{ states('sensor.krasnoukhov_weight') }}
-      {%- endif -%}
-    unit_of_measurement: kg
-    force_update: true
-  - platform: mqtt
-    name: darianiff_weight
-    state_topic: miscale/weight/kg
-    value_template: >-
-      {%- if value|float < 70 and value|float > 30 and is_state('person.daria', 'home') -%}
-        {{ value }}
-      {%- else -%}
-        {{ states('sensor.darianiff_weight') }}
-      {%- endif -%}
+      {{ value|float }}
     unit_of_measurement: kg
     force_update: true
   - platform: mqtt
@@ -86,6 +71,26 @@ sensor:
     json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
   - platform: template
     sensors:
+      krasnoukhov_weight:
+        friendly_name: krasnoukhov-weight
+        unit_of_measurement: kg
+        value_template: >-
+          {% set value = states('sensor.miscale_weight') %}
+          {%- if value|float >= 70 and is_state('person.dmitry', 'home') -%}
+            {{ value }}
+          {%- else -%}
+            {{ states('sensor.krasnoukhov_weight') }}
+          {%- endif -%}
+      darianiff_weight:
+        friendly_name: darianiff-weight
+        unit_of_measurement: kg
+        value_template: >-
+          {% set value = states('sensor.miscale_weight') %}
+          {%- if value|float < 70 and value|float > 30 and is_state('person.daria', 'home') -%}
+            {{ value }}
+          {%- else -%}
+            {{ states('sensor.darianiff_weight') }}
+          {%- endif -%}
       tv_power:
         friendly_name: tv-power
         unit_of_measurement: watt

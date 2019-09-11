@@ -257,3 +257,6 @@ sensor.pi_hole_ads_blocked_today:
   friendly_name: ads-blocked
 sensor.unifi_gateway_www:
   friendly_name: internet
+sensor.miscale_weight:
+  friendly_name: miscale
+  icon: mdi:scale-bathroom
