@@ -69,20 +69,18 @@ sensor:
     on_value:
       then:
         - lambda: |-
-            static bool is_visiting = false;
-            ESP_LOGD("weight", "Tare: %f, weight: %f, visiting: %d", id(tare).state, x, is_visiting);
+            static time_t visiting_since = 0;
+            ESP_LOGD("weight", "Tare: %f, weight: %f, visiting since: %ld", id(tare).state, x, visiting_since);
 
-            if (x > id(tare).state + 500.0) {
-              if (!is_visiting) {
-                is_visiting = true;
+            if (x > id(tare).state + 500.0 && visiting_since == 0) {
+              visiting_since = time(NULL);
 
-                esphome::api::ServiceCallResponse action;
-                action.set_service("counter.increment");
-                action.set_data({ api::KeyValuePair("entity_id", "counter.shit_scale_visits") });
-                id(api_apiserver)->send_service_call(action);
+              esphome::api::ServiceCallResponse action;
+              action.set_service("counter.increment");
+              action.set_data({ api::KeyValuePair("entity_id", "counter.shit_scale_visits") });
+              id(api_apiserver)->send_service_call(action);
 
-                ESP_LOGD("weight", "Incremented");
-              }
-            } else {
-              is_visiting = false;
+              ESP_LOGD("weight", "Incremented");
+            } else if (visiting_since + 300 < time(NULL)) {
+              visiting_since = 0;
             }

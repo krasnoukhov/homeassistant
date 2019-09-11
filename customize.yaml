@@ -232,6 +232,20 @@ light.0x000b57fffed836d2_light:
 sensor.0x000b57fffed836d2_linkquality:
   friendly_name: kitchen-lamp-small-link
 
+# Shit scale
+
+binary_sensor.shit_scale_status:
+  friendly_name: status
+input_number.shit_scale_tare:
+  friendly_name: tare
+input_number.shit_scale_capacity:
+  friendly_name: capacity
+counter.shit_scale_visits:
+  friendly_name: visits
+sensor.shit_scale_utilization:
+  friendly_name: shit-scale
+  icon: mdi:emoticon-poop
+
 # Other
 
 climate.livingroom_ac:
