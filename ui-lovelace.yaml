@@ -95,7 +95,7 @@ views:
               icon: 'mdi:bed-empty'
               name: clean-bedroom
               service: vacuum.send_command
-      sensor.zigbee_map:
+      sensor.zigbee_state:
         title: zigbee
         card:
           type: 'custom:zigbee2mqtt-networkmap'
@@ -197,7 +197,7 @@ views:
           - entity: switch.0x00124b00180358d3_switch_left
           - entity: switch.0x00124b001838d9fe_switch_left
           - entity: binary_sensor.0x00158d0002c9584d_contact
-          - entity: sensor.zigbee_map
+          - entity: sensor.zigbee_state
           - entity: sensor.unifi_gateway_www
           - entity: sensor.miscale_weight
           - entity: counter.shit_scale_visits

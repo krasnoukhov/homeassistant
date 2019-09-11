@@ -260,3 +260,6 @@ sensor.unifi_gateway_www:
 sensor.miscale_weight:
   friendly_name: miscale
   icon: mdi:scale-bathroom
+sensor.zigbee_state:
+  friendly_name: zigbee
+  icon: mdi:zigbee

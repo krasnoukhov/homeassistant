@@ -64,6 +64,9 @@ sensor:
     unit_of_measurement: kg
     force_update: true
   - platform: mqtt
+    name: zigbee_state
+    state_topic: zigbee2mqtt/bridge/state
+  - platform: mqtt
     name: zigbee_map
     state_topic: zigbee2mqtt/bridge/networkmap/raw
     value_template: >-
