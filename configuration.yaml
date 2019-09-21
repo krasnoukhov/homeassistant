@@ -11,6 +11,8 @@ homeassistant:
 datadog:
 discovery:
 smartir:
+pi_hole:
+  host: 192.168.1.2
 
 tts:
   - platform: google_translate
@@ -55,7 +57,6 @@ apple_tv:
     credentials: !secret atv_credentials
 
 sensor:
-  - platform: pi_hole
   - platform: mqtt
     name: miscale_weight
     state_topic: support/miscale/weight/kg
