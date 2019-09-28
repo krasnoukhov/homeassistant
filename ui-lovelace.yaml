@@ -1,20 +1,20 @@
 resources:
   - type: module
-    url: /local/vacuum-card.js
+    url: /local/vacuum-card.js?v1
   - type: module
-    url: /community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
+    url: /community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js?v1
   - type: js
-    url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js
+    url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js?v1
   - type: module
-    url: /community_plugin/compact-custom-header/compact-custom-header.js
+    url: /community_plugin/compact-custom-header/compact-custom-header.js?v1
   - type: module
-    url: /community_plugin/lovelace-card-mod/card-mod.js
+    url: /community_plugin/lovelace-card-mod/card-mod.js?v1
   - type: js
-    url: /community_plugin/lovelace-card-tools/card-tools.js?track=true
+    url: /community_plugin/lovelace-card-tools/card-tools.js?v1
   - type: js
-    url: /community_plugin/lovelace-popup-card/popup-card.js?track=true
+    url: /community_plugin/lovelace-popup-card/popup-card.js?v1
   - type: module
-    url: /community_plugin/simple-thermostat/simple-thermostat.js
+    url: /community_plugin/simple-thermostat/simple-thermostat.js?v1
 title: Home
 _thermostat: &_thermostat
   type: 'custom:simple-thermostat'

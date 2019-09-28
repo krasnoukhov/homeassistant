@@ -89,6 +89,7 @@ const styles = html`
 
     .toolbar {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       min-height: 30px;
       display: flex;
       flex-direction: row;
@@ -325,7 +326,6 @@ class VacuumCard extends LitElement {
     return html`
       ${styles}
       <ha-card>
-        ${this.renderMapCard()}
         <div class="preview" @click='${(e) => this.handleMore()}' ?more-info=true>
           <div class="header">
             <div class="status">${status}</div>
@@ -346,6 +346,7 @@ class VacuumCard extends LitElement {
           </div>
         </div>
         ${cleaning ? this.renderCleaningToolbar() : this.renderDockedToolbar()}
+        ${this.renderMapCard()}
       </ha-card>
     `
   }
