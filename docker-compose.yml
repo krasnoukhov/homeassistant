@@ -20,7 +20,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - MEM_LIMIT=256M
+      - MEM_LIMIT=512M
     ports:
       - 3478:3478/udp
       - 10001:10001/udp

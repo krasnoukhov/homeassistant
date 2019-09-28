@@ -12,6 +12,10 @@
     platform: state
     entity_id: group.people
     to: not_home
+  condition:
+    condition: template
+    value_template: >
+      {{ not is_state('person.dmitry', 'unknown') }}
   action:
     - service: switch.turn_off
       data:
@@ -32,6 +36,10 @@
     platform: state
     entity_id: group.people
     to: not_home
+  condition:
+    condition: template
+    value_template: >
+      {{ not is_state('person.dmitry', 'unknown') }}
   action:
     - service: climate.set_preset_mode
       data:
@@ -60,6 +68,7 @@
   trigger:
     platform: state
     entity_id: person.daria, person.dmitry, person.guest
+    from: not_home
     to: home
   action:
     - service: fan.turn_on
@@ -70,6 +79,7 @@
   trigger:
     platform: state
     entity_id: person.daria, person.dmitry, person.guest
+    from: not_home
     to: home
   action:
     # These are actually group.thermostats, but 0.96 oh well
@@ -303,6 +313,7 @@
         minutes: 1
     - platform: state
       entity_id: person.daria, person.dmitry
+      from: not_home
       to: home
       for:
         minutes: 5
@@ -416,6 +427,7 @@
         minutes: 1
     - platform: state
       entity_id: person.daria, person.dmitry
+      from: not_home
       to: home
       for:
         minutes: 5
@@ -462,6 +474,7 @@
   trigger:
     platform: state
     entity_id: person.daria, person.dmitry
+    from: not_home
     to: home
     for:
       minutes: 5
