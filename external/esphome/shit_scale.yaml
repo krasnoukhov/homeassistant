@@ -12,15 +12,26 @@ logger:
 api:
 ota:
 
+deep_sleep:
+  run_duration: 5min
+  sleep_duration: 360min
+  wakeup_pin:
+    number: GPIO12
+    mode: INPUT_PULLDOWN
+
 binary_sensor:
   - platform: status
     name: shit_scale_status
 
   - platform: gpio
-    id: clean_state
+    id: vibration
     pin:
-      number: GPIO32
-      inverted: true
+      number: GPIO12
+      mode: INPUT_PULLDOWN
+
+  - platform: gpio
+    id: clean_state
+    pin: GPIO32
     filters:
       - delayed_on: 50ms
     on_press:
@@ -41,14 +52,10 @@ binary_sensor:
                 return (int)id(weight).state;
 
 sensor:
-  # - platform: adc
-  #   name: shit_scale_voltage
-  #   pin: GPIO34
-  #   attenuation: 11db
-  #
-  # - platform: wifi_signal
-  #   name: shit_scale_wifi_signal
-  #   update_interval: 15s
+  - platform: adc
+    name: shit_scale_voltage
+    pin: GPIO34
+    attenuation: 11db
 
   - platform: homeassistant
     id: tare
@@ -59,7 +66,7 @@ sensor:
     dout_pin: GPIO22
     clk_pin: GPIO23
     gain: 64
-    update_interval: 10s
+    update_interval: 5s
     filters:
       - calibrate_linear:
           - 233950 -> 0
