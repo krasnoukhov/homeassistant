@@ -12,7 +12,7 @@ datadog:
 discovery:
 smartir:
 pi_hole:
-  host: 192.168.1.2
+  host: 192.168.1.2:8882
 
 tts:
   - platform: google_translate
@@ -302,7 +302,7 @@ panel_iframe:
   pi_hole:
     title: Pi-hole
     icon: mdi:close-octagon-outline
-    url: http://192.168.1.2/admin/
+    url: http://192.168.1.2:8882/admin
   z2ma:
     title: Zigbee2MqttAssistant
     icon: mdi:zigbee

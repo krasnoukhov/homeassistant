@@ -179,6 +179,11 @@ views:
             - entity: input_number.shit_scale_tare
             - entity: input_number.shit_scale_capacity
             - entity: counter.shit_scale_visits
+      plant.calathea:
+        title: ''
+        card:
+          type: plant-status
+          entity: plant.calathea
     cards:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
