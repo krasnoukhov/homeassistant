@@ -13,11 +13,11 @@ api:
 ota:
 
 deep_sleep:
-  run_duration: 5min
+  run_duration: 3min
   sleep_duration: 360min
   wakeup_pin:
     number: GPIO12
-    mode: INPUT_PULLDOWN
+    inverted: true
 
 binary_sensor:
   - platform: status
@@ -27,11 +27,13 @@ binary_sensor:
     id: vibration
     pin:
       number: GPIO12
-      mode: INPUT_PULLDOWN
+      inverted: true
 
   - platform: gpio
     id: clean_state
-    pin: GPIO32
+    pin:
+      number: GPIO32
+      mode: INPUT_PULLDOWN
     filters:
       - delayed_on: 50ms
     on_press:
