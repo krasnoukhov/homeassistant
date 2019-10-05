@@ -11,6 +11,9 @@ wifi:
 logger:
 api:
 ota:
+mqtt:
+  broker: 192.168.1.2
+  discovery: false
 
 deep_sleep:
   run_duration: 3min
