@@ -219,7 +219,7 @@
         seconds: 10
     - platform: state
       entity_id: media_player.apple_tv
-      to: idle
+      to: paused
       for:
         seconds: 10
   condition:

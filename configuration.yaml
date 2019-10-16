@@ -51,10 +51,10 @@ homekit:
       - switch.bathroom_outlet_washer
       - switch.kitchen_outlet_dishwasher
 
-apple_tv:
-  - host: 192.168.1.15
-    login_id: !secret atv_login_id
-    credentials: !secret atv_credentials
+apple_tv_mrp:
+  - name: apple-tv
+    host: 192.168.1.15
+    port: 49152
 
 sensor:
   - platform: mqtt
