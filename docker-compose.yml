@@ -77,9 +77,6 @@ services:
     image: homeassistant/raspberrypi4-homeassistant:stable
     volumes:
       - ./:/config
-    depends_on:
-      - mqtt
-      - unifi
     network_mode: host
     cap_add:
       - NET_ADMIN
@@ -92,8 +89,6 @@ services:
       - Z2MA_SETTINGS__MQTTSERVER=192.168.1.2
     ports:
       - 8881:80
-    depends_on:
-      - mqtt
     restart: unless-stopped
   bt2mqtt:
     container_name: bt2mqtt
@@ -103,8 +98,6 @@ services:
     volumes:
       - ./.data/bt2mqtt:/config/
       - ./external/bt2mqtt.yaml:/config/config.yaml
-    depends_on:
-      - mqtt
     network_mode: host
     cap_add:
       - NET_ADMIN
