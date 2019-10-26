@@ -20,3 +20,9 @@ manager:
         topic_prefix: thermostat
       topic_subscription: thermostat/+/+/set
       update_interval: 60
+    miflora:
+      args:
+        devices:
+          basil: C4:7C:8D:66:37:90
+        topic_prefix: miflora
+      update_interval: 300

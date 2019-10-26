@@ -236,8 +236,10 @@
 - alias: send-plant-alert
   trigger:
     platform: state
-    entity_id: plant.calathea
+    entity_id: plant.calathea, plant.basil
     to: problem
+    for:
+      minutes: 15
   action:
     service: notify.people
     data_template:

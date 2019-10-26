@@ -184,6 +184,11 @@ views:
         card:
           type: plant-status
           entity: plant.calathea
+      plant.basil:
+        title: ''
+        card:
+          type: plant-status
+          entity: plant.basil
     cards:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
@@ -216,6 +221,7 @@ views:
           - entity: sensor.0x00158d000323089e_humidity
           - entity: sensor.dishwasher_state
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
+          - entity: plant.basil
         title: kitchen
         type: entities
       - entities:
