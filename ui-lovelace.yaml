@@ -167,18 +167,6 @@ views:
           entities:
             - sensor.krasnoukhov_weight
             - sensor.darianiff_weight
-      sensor.shit_scale_utilization:
-        title: ''
-        card:
-          type: entities
-          title: shit-scale
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.shit_scale_status
-            - entity: sensor.shit_scale_voltage
-            - entity: input_number.shit_scale_tare
-            - entity: input_number.shit_scale_capacity
-            - entity: counter.shit_scale_visits
       plant.calathea:
         title: ''
         card:
@@ -230,7 +218,6 @@ views:
           - entity: binary_sensor.0x00158d0002c9584d_contact
           - entity: sensor.zigbee_state
           - entity: sensor.unifi_gateway_www
-          - entity: sensor.shit_scale_utilization
         title: hallway
         type: entities
       - entities:

@@ -135,13 +135,6 @@ sensor:
         unit_of_measurement: aqi
         value_template: |
           {{ state_attr('fan.air_purifier', 'aqi')|int }}
-      shit_scale_tare:
-        value_template: |
-          {{ states('input_number.shit_scale_tare') }}
-      shit_scale_utilization:
-        value_template: |
-          {{ (states('counter.shit_scale_visits')|int / states('input_number.shit_scale_capacity')|int * 100)|int }}
-        unit_of_measurement: "%"
   - platform: rest
     resource: http://192.168.1.25/api/map/latest
     name: roborock_map
@@ -231,20 +224,6 @@ input_select:
       - running
       - clean
       - open
-
-input_number:
-  shit_scale_tare:
-    name: shit-scale-tare
-    min: 1000
-    max: 3000
-  shit_scale_capacity:
-    name: shit-scale-capacity
-    min: 0
-    max: 100
-
-counter:
-  shit_scale_visits:
-    name: shit-scale-visits
 
 notify:
   - name: dmitry
