@@ -130,11 +130,6 @@ sensor:
           {% endif %}
         value_template: |
           {{ states('input_select.dishwasher_status')|capitalize }}
-      air_purifier_aqi:
-        friendly_name: air-purifier-aqi
-        unit_of_measurement: aqi
-        value_template: |
-          {{ state_attr('fan.air_purifier', 'aqi')|int }}
   - platform: rest
     resource: http://192.168.1.25/api/map/latest
     name: roborock_map
@@ -278,13 +273,6 @@ plant:
     max_conductivity: 2000
     min_temperature: 8
     max_temperature: 32
-
-fan:
-  - platform: xiaomi_miio
-    host: 192.168.1.24
-    token: !secret air_purifier_token
-    name: air-purifier
-    model: zhimi.airpurifier.mc1
 
 panel_iframe:
   unifi:

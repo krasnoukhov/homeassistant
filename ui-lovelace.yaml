@@ -181,10 +181,8 @@ views:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
           - entity: light.0x000d6ffffe12c0c2_light
-          - entity: fan.air_purifier
           - entity: climate.thermostat_bedroom_climate
           - entity: sensor.0x00158d0002f2ed69_humidity
-          - entity: sensor.air_purifier_aqi
           - entity: plant.calathea
           - entity: switch.0x00124b0018028fd6_switch_left
         show_header_toggle: true

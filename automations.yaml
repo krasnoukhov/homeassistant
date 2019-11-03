@@ -64,17 +64,6 @@
     - service: switch.turn_on
       entity_id: switch.0x00124b00180358d3_switch_left
 
-- alias: someone-home
-  trigger:
-    platform: state
-    entity_id: person.daria, person.dmitry, person.guest
-    from: not_home
-    to: home
-  action:
-    - service: fan.turn_on
-      data:
-        entity_id: fan.air_purifier
-
 - alias: someone-home-climate
   trigger:
     platform: state
