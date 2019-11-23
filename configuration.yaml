@@ -11,6 +11,7 @@ homeassistant:
 datadog:
 discovery:
 smartir:
+browser_mod:
 pi_hole:
   host: 192.168.1.2:8882
 
@@ -54,7 +55,7 @@ homekit:
 apple_tv_mrp:
   - name: apple-tv
     host: 192.168.1.15
-    port: 49152
+    port: 49153
 
 sensor:
   - platform: mqtt

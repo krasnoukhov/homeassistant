@@ -1,10 +1,8 @@
 homeassistant: true
 permit_join: false
-experimental:
-  livolo: true
 advanced:
   channel: 26
-  last_seen: ISO_8601
+  last_seen: epoch
 serial:
   port: /dev/ttyACM0
 mqtt:
