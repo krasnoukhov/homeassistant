@@ -72,8 +72,37 @@ services:
       - ./.data/mosquitto/data:/mosquitto/data
       - ./external/mosquitto.conf:/mosquitto/config/mosquitto.conf
     restart: unless-stopped
+  mariadb:
+    container_name: mariadb
+    image: linuxserver/mariadb:latest
+    env_file:
+      - mariadb.env
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.data/mariadb:/config
+    restart: unless-stopped
+  influxdb:
+    container_name: influxdb
+    image: influxdb:latest
+    env_file:
+      - influxdb.env
+    ports:
+      - 8086:8086
+    volumes:
+      - ./.data/influxdb:/var/lib/influxdb
+    restart: unless-stopped
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:6.3.7
+    ports:
+      - 8883:3000
+    volumes:
+      - ./.data/grafana:/var/lib/grafana
+    user: "1000"
+    restart: unless-stopped
   homeassistant:
-    container_name: home-assistant
+    container_name: homeassistant
     image: homeassistant/raspberrypi4-homeassistant:stable
     volumes:
       - ./:/config

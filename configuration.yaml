@@ -14,9 +14,16 @@ smartir:
 browser_mod:
 pi_hole:
   host: 192.168.1.2:8882
-
 tts:
   - platform: google_translate
+lovelace:
+  mode: yaml
+recorder:
+  db_url: !secret db_url
+influxdb:
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
 
 mqtt:
   discovery: true
@@ -282,6 +289,7 @@ panel_iframe:
     title: ESPhome
     icon: mdi:memory
     url: http://192.168.1.2:6052/
-
-lovelace:
-  mode: yaml
+  grafana:
+    title: Grafana
+    icon: mdi:monitor-dashboard
+    url: http://192.168.1.2:8883/
