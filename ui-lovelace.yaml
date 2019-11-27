@@ -18,17 +18,23 @@ resources:
 title: Home
 _thermostat: &_thermostat
   type: 'custom:simple-thermostat'
-  hide:
-    away: false
-  modes:
-    auto:
-      include: false
-    heat:
-      name: boost
-    manual:
-      icon: mdi:temperature-celsius
-    eco:
-      icon: mdi:leaf
+  style: |
+    :host {
+      --st-mode-background: var(--divider-color) !important;
+    }
+  step_size: 1
+  control:
+    _names: false
+    hvac:
+      auto: false
+    preset:
+      none: false
+      boost:
+        icon: mdi:timer
+      comfort:
+        icon: mdi:temperature-celsius
+      eco:
+        icon: mdi:leaf
 views:
   - badges:
       - person.daria
@@ -122,8 +128,6 @@ views:
               name: Window
             - entity: sensor.thermostat_bedroom_valve_state
               name: Valve
-          mqtt:
-            mode_topic: support/thermostat/bedroom/mode/set
       climate.thermostat_livingroom_climate:
         title: ''
         card:
@@ -136,8 +140,6 @@ views:
               name: Window
             - entity: sensor.thermostat_livingroom_valve_state
               name: Valve
-          mqtt:
-            mode_topic: support/thermostat/livingroom/mode/set
       climate.thermostat_kitchen_climate:
         title: ''
         card:
@@ -150,13 +152,11 @@ views:
               name: Window
             - entity: sensor.thermostat_kitchen_valve_state
               name: Valve
-          mqtt:
-            mode_topic: thermostat/kitchen/mode/set
       climate.livingroom_ac:
         title: ''
         card:
           entity: climate.livingroom_ac
-          type: 'custom:simple-thermostat'
+          <<: *_thermostat
           sensors:
             - entity: sensor.0x00158d0002f2ed1f_humidity
               name: Humidity
@@ -239,8 +239,6 @@ views:
             name: Window
           - entity: sensor.thermostat_bedroom_valve_state
             name: Valve
-        mqtt:
-          mode_topic: support/thermostat/bedroom/mode/set
       - entity: climate.thermostat_livingroom_climate
         <<: *_thermostat
         sensors:
@@ -250,8 +248,6 @@ views:
             name: Window
           - entity: sensor.thermostat_livingroom_valve_state
             name: Valve
-        mqtt:
-          mode_topic: support/thermostat/livingroom/mode/set
       - entity: climate.thermostat_kitchen_climate
         <<: *_thermostat
         sensors:
@@ -261,10 +257,8 @@ views:
             name: Window
           - entity: sensor.thermostat_kitchen_valve_state
             name: Valve
-        mqtt:
-          mode_topic: thermostat/kitchen/mode/set
-      - type: 'custom:simple-thermostat'
-        entity: climate.livingroom_ac
+      - entity: climate.livingroom_ac
+        <<: *_thermostat
         sensors:
           - entity: sensor.0x00158d0002f2ed1f_humidity
             name: Humidity

@@ -44,7 +44,7 @@
     - service: climate.set_preset_mode
       data:
         entity_id: group.thermostats
-        preset_mode: away
+        preset_mode: eco
     - delay: 00:00:05
     - service: climate.set_temperature
       data:
@@ -71,37 +71,20 @@
     from: not_home
     to: home
   action:
-    # These are actually group.thermostats, but 0.96 oh well
-    - service: mqtt.publish
+    - service: climate.set_preset_mode
       data:
-        topic: support/thermostat/bedroom/mode/set
-        payload: manual
-    - service: mqtt.publish
-      data:
-        topic: support/thermostat/livingroom/mode/set
-        payload: manual
-    - service: mqtt.publish
-      data:
-        topic: thermostat/kitchen/mode/set
-        payload: manual
+        entity_id: group.thermostats
+        preset_mode: comfort
     - delay: 00:00:05
     - service: climate.set_temperature
       data:
         entity_id: group.thermostats
         temperature: 22
     - delay: 00:00:05
-    - service: mqtt.publish
+    - service: climate.set_preset_mode
       data:
-        topic: support/thermostat/bedroom/mode/set
-        payload: heat
-    - service: mqtt.publish
-      data:
-        topic: support/thermostat/livingroom/mode/set
-        payload: heat
-    - service: mqtt.publish
-      data:
-        topic: thermostat/kitchen/mode/set
-        payload: heat
+        entity_id: group.thermostats
+        preset_mode: boost
 
 - alias: bathroom-vent-timeout
   trigger:
