@@ -232,16 +232,16 @@ notify:
   - name: dmitry
     platform: group
     services:
-      - service: ios_krasnoukhov_iphone
+      - service: mobile_app_krasnoukhovs_iphone
   - name: daria
     platform: group
     services:
-      - service: ios_darias_iphone
+      - service: mobile_app_daria_s_iphone
   - name: people
     platform: group
     services:
-      - service: ios_krasnoukhov_iphone
-      - service: ios_darias_iphone
+      - service: mobile_app_krasnoukhovs_iphone
+      - service: mobile_app_daria_s_iphone
 
 ios:
   push:
