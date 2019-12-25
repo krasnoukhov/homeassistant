@@ -2,6 +2,7 @@ homeassistant: true
 permit_join: false
 advanced:
   channel: 26
+  pan_id: 0x6756
   last_seen: epoch
 serial:
   port: /dev/ttyACM0
@@ -10,6 +11,8 @@ mqtt:
   server: 'mqtt://localhost'
   user: homeassistant
   password: privet
+ban:
+  - '0x00124b001838d640'
 devices:
   '0x00158d0002f2ed69':
     friendly_name: bedroom

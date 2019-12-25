@@ -62,7 +62,7 @@ homekit:
 apple_tv_mrp:
   - name: apple-tv
     host: 192.168.1.15
-    port: 49153
+    port: 49152
 
 sensor:
   - platform: mqtt

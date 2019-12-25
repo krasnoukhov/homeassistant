@@ -6,16 +6,14 @@ resources:
   - type: js
     url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js?v1
   - type: module
-    url: /community_plugin/compact-custom-header/compact-custom-header.js?v1
+    url: /community_plugin/custom-header/custom-header.js?v1
   - type: module
     url: /community_plugin/lovelace-card-mod/card-mod.js?v1
-  - type: js
-    url: /community_plugin/lovelace-card-tools/card-tools.js?v1
-  - type: js
-    url: /community_plugin/lovelace-popup-card/popup-card.js?v1
   - type: module
     url: /community_plugin/simple-thermostat/simple-thermostat.js?v1
 title: Home
+custom_header:
+  compact_mode: true
 _thermostat: &_thermostat
   type: 'custom:simple-thermostat'
   style: |
