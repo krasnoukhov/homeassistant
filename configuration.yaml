@@ -35,30 +35,6 @@ mqtt:
     topic: hass/status
     payload: offline
 
-homekit:
-  auto_start: false
-  filter:
-    exclude_domains:
-      - automation
-      - device_tracker
-      - remote
-      - script
-    exclude_entities:
-      - binary_sensor.remote_ui
-      - binary_sensor.livingroom_outlet_tv_state
-      - binary_sensor.0x00124b00194a06da_router
-      - switch.0x00124b001838b864_switch_right
-      - switch.0x00124b0018028fd6_switch_right
-      - switch.0x00124b0018034c86_switch_right
-      - switch.0x00124b001803573a_switch_right
-      - switch.0x00124b00180358d3_switch_right
-      - switch.0x00124b001838d640_switch_left
-      - switch.0x00124b001838d640_switch_right
-      - switch.0x00124b001838d9fe_switch_right
-      - switch.livingroom_outlet_tv
-      - switch.bathroom_outlet_washer
-      - switch.kitchen_outlet_dishwasher
-
 apple_tv_mrp:
   - name: apple-tv
     host: 192.168.1.15
@@ -242,15 +218,6 @@ notify:
     services:
       - service: mobile_app_krasnoukhovs_iphone
       - service: mobile_app_daria_s_iphone
-
-ios:
-  push:
-    categories:
-      - name: start-vacuum
-        identifier: start_vacuum
-        actions:
-          - identifier: START_VACUUM
-            title: Start cleaning
 
 plant:
   calathea:

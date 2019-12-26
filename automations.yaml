@@ -4,7 +4,6 @@
     event: start
   action:
     - delay: 00:01:00
-    - service: homekit.start
     - service: script.turn_off_tv
 
 - alias: everyone-left
@@ -441,57 +440,3 @@
         {% endif %}
       data:
         message: Hey, the dishwasher has finished and is ready to be emptied
-
-# Vacuum
-
-- alias: send-vacuum-start-reminder
-  trigger:
-    platform: state
-    entity_id: person.daria, person.dmitry
-    from: not_home
-    to: home
-    for:
-      minutes: 5
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - sat
-          - mon
-      - condition: template
-        value_template: >-
-          {%- set unix = as_timestamp(now())|int -%}
-          {%- set interval = 86400 -%}
-          {%- if unix - (state_attr("vacuum.roborock", "last_run_stats").endTime / 1000) < interval -%}
-            false
-          {%- elif unix - as_timestamp(state_attr("automation.send_vacuum_start_reminder", "last_triggered"))|int < interval -%}
-            false
-          {%- else -%}
-            true
-          {%- endif -%}
-  action:
-    - service_template: >
-        {% if (is_state('person.dmitry', 'home')) and (is_state('person.daria', 'home')) %}
-          notify.people
-        {% elif is_state('person.dmitry', 'home') %}
-          notify.dmitry
-        {% elif is_state('person.daria', 'home') %}
-          notify.daria
-        {% endif %}
-      data:
-        message: Would you like to start the vacuum?
-        data:
-          push:
-            category: start_vacuum
-
-- alias: start-vacuum
-  trigger:
-    platform: event
-    event_type: ios.notification_action_fired
-    event_data:
-      actionName: START_VACUUM
-  action:
-    service: vacuum.start
-    data:
-      entity_id: vacuum.roborock
