@@ -40,11 +40,6 @@
     value_template: >
       {{ not is_state('person.dmitry', 'unknown') }}
   action:
-    - service: climate.set_preset_mode
-      data:
-        entity_id: group.thermostats
-        preset_mode: eco
-    - delay: 00:00:05
     - service: climate.set_temperature
       data:
         entity_id: group.thermostats
@@ -70,11 +65,6 @@
     from: not_home
     to: home
   action:
-    - service: climate.set_preset_mode
-      data:
-        entity_id: group.thermostats
-        preset_mode: comfort
-    - delay: 00:00:05
     - service: climate.set_temperature
       data:
         entity_id: group.thermostats

@@ -31,8 +31,7 @@ _thermostat: &_thermostat
         icon: mdi:timer
       comfort:
         icon: mdi:temperature-celsius
-      eco:
-        icon: mdi:leaf
+      eco: false
 views:
   - badges:
       - person.daria
