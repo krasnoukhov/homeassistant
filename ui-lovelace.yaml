@@ -11,6 +11,8 @@ resources:
     url: /community_plugin/lovelace-card-mod/card-mod.js?v1
   - type: module
     url: /community_plugin/simple-thermostat/simple-thermostat.js?v1
+  - type: module
+    url: /community_plugin/lovelace-state-switch/state-switch.js?v1
 title: Home
 custom_header:
   compact_mode: true
@@ -263,18 +265,46 @@ views:
     title: Climate
   - badges: []
     cards:
-      - entities:
-          - entity: sensor.time
-          - entity: sensor.date
-        show_name: false
-        show_state: true
-        style: |
-          ha-card {
-            font-size: 300%;
-          }
-        type: glance
-      - entity: weather.home
-        type: weather-forecast
+      - type: custom:state-switch
+        entity: sensor.someone_arrived_home
+        states:
+          "True":
+            type: vertical-stack
+            cards:
+              - type: entities
+                title: Thermostats
+                show_header_toggle: false
+                entities:
+                  - entity: climate.thermostat_bedroom_climate
+                    name: bedroom
+                  - entity: climate.thermostat_livingroom_climate
+                    name: livingroom
+                  - entity: climate.thermostat_kitchen_climate
+                    name: kitchen
+              - type: entities
+                title: Lights
+                entities:
+                  - entity: group.kitchen_lamp
+                  - entity: group.livingroom_lamp
+                  - entity: light.0x000d6ffffe12c0c2_light
+                  - entity: light.0xd0cf5efffefc876e_light
+          "False":
+            type: vertical-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: sensor.date
+                  - entity: sensor.time
+                show_name: false
+                show_state: true
+                show_icon: false
+                style: |
+                  ha-card {
+                    font-size: 300%;
+                  }
+              - type: weather-forecast
+                entity: weather.home
+
     icon: 'mdi:tablet'
     theme: slate
     title: rPI
