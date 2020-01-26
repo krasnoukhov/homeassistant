@@ -144,12 +144,34 @@
 
 - alias: toggle-livingroom-lamp
   trigger:
-    platform: state
-    entity_id: sensor.0x00158d0002c92aef_click
-    to: single
+    - platform: state
+      entity_id: sensor.0x00158d0002c92aef_click
+      to: single
+    - platform: state
+      entity_id: sensor.0xec1bbdfffe004203_action
+      to: toggle
   action:
     service: light.toggle
     entity_id: group.livingroom_lamp
+
+- alias: configure-livingroom-lamp
+  trigger:
+    - platform: state
+      entity_id: sensor.0xec1bbdfffe004203_action
+      to: brightness_up_click
+    - platform: state
+      entity_id: sensor.0xec1bbdfffe004203_action
+      to: brightness_down_click
+  action:
+    service: light.turn_on
+    data_template:
+      entity_id: group.livingroom_lamp
+      brightness: >-
+        {%- if (trigger.to_state.state == "brightness_up_click") -%}
+        {{ state_attr("light.0x000d6ffffe0e63cd_light", "brightness") + 51 }}
+        {%- else -%}
+        {{ state_attr("light.0x000d6ffffe0e63cd_light", "brightness") - 51 }}
+        {%- endif -%}
 
 - alias: toggle-kitchen-lamp
   trigger:

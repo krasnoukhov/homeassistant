@@ -105,3 +105,6 @@ devices:
   '0x00158d000349bfe2':
     friendly_name: bathroom
     retain: true
+  '0xec1bbdfffe004203':
+    friendly_name: livingroom_lamp_remote
+    retain: true
