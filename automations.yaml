@@ -40,10 +40,10 @@
     value_template: >
       {{ not is_state('person.dmitry', 'unknown') }}
   action:
-    - service: climate.set_temperature
+    - service: climate.set_preset_mode
       data:
         entity_id: group.thermostats
-        temperature: 17
+        preset_mode: eco
 
 - alias: entrance-door-open
   trigger:
@@ -65,10 +65,10 @@
     from: not_home
     to: home
   action:
-    - service: climate.set_temperature
+    - service: climate.set_preset_mode
       data:
         entity_id: group.thermostats
-        temperature: 22
+        preset_mode: comfort
     - delay: 00:00:05
     - service: climate.set_preset_mode
       data:

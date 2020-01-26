@@ -24,16 +24,11 @@ _thermostat: &_thermostat
     }
   step_size: 1
   control:
-    _names: false
     hvac:
       auto: false
     preset:
       none: false
-      boost:
-        icon: mdi:timer
-      comfort:
-        icon: mdi:temperature-celsius
-      eco: false
+      away: false
 views:
   - badges:
       - person.daria
