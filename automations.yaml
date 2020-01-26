@@ -197,7 +197,7 @@
 - alias: send-plant-alert
   trigger:
     platform: state
-    entity_id: plant.calathea
+    entity_id: plant.calathea, plant.rosemary
     to: problem
     for:
       minutes: 15
