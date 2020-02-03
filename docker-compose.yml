@@ -126,7 +126,7 @@ services:
       - DEBUG=true
     volumes:
       - ./.data/bt2mqtt:/config/
-      - ./external/bt2mqtt.yaml:/config/config.yaml
+      - ./external/bt2mqtt.yaml:/config.yaml
     network_mode: host
     cap_add:
       - NET_ADMIN

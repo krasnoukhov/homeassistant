@@ -21,7 +21,7 @@ services:
       - DEBUG=true
     volumes:
       - ./.data/bt2mqtt:/config/
-      - ./bt2mqtt.yaml:/config/config.yaml
+      - ./bt2mqtt.yaml:/config.yaml
     network_mode: host
     cap_add:
       - NET_ADMIN
