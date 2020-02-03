@@ -35,4 +35,4 @@ manager:
             discovery_temperature_template: "{{ value_json.temperature }}"
         topic_prefix: thermostat
       topic_subscription: thermostat/+/+/set
-      update_interval: 60
+      update_interval: 300
