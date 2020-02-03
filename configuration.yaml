@@ -38,7 +38,7 @@ mqtt:
 apple_tv_mrp:
   - name: apple-tv
     host: 192.168.1.15
-    port: 60537
+    port: 49152
 
 sensor:
   - platform: mqtt
