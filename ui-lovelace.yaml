@@ -174,7 +174,9 @@ views:
     cards:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
+            state_color: false
           - entity: light.0x000d6ffffe12c0c2_light
+            state_color: false
           - entity: climate.thermostat_bedroom_climate
           - entity: sensor.0x00158d0002f2ed69_humidity
           - entity: plant.calathea
@@ -288,7 +290,9 @@ views:
                   - entity: group.kitchen_lamp
                   - entity: group.livingroom_lamp
                   - entity: light.0x000d6ffffe12c0c2_light
+                    state_color: false
                   - entity: light.0xd0cf5efffefc876e_light
+                    state_color: false
           "False":
             type: vertical-stack
             cards:
