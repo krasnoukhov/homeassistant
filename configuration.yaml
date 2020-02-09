@@ -20,6 +20,18 @@ lovelace:
   mode: yaml
 recorder:
   db_url: !secret db_url
+  exclude:
+    entities:
+      - sensor.time
+      - sensor.date
+      - sensor.zigbee_map
+      - sensor.tv_power
+      - sensor.washer_power
+      - sensor.dishwasher_power
+      - sensor.roborock_map
+      - automation.home_assistant_cron
+      - group.all_turnable_entities
+
 influxdb:
   database: homeassistant
   username: homeassistant
