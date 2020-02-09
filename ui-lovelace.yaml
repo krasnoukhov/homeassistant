@@ -13,6 +13,8 @@ resources:
     url: /community_plugin/simple-thermostat/simple-thermostat.js?v1
   - type: module
     url: /community_plugin/lovelace-state-switch/state-switch.js?v1
+  - type: module
+    url: /community_plugin/lovelace-more-info-card/more-info-card.js?v1
 title: Home
 custom_header:
   compact_mode: true
@@ -171,6 +173,26 @@ views:
         card:
           type: plant-status
           entity: plant.rosemary
+      fan.air_purifier:
+        title: ''
+        card:
+          type: vertical-stack
+          cards:
+            - type: sensor
+              entity: sensor.air_purifier_aqi
+              graph: line
+              detail: 2
+              style: |
+                ha-card .icon,
+                ha-card .header {
+                  display: none;
+                }
+            - type: custom:more-info-card
+              entity: fan.air_purifier
+              style: |
+                ha-card .card-header {
+                  display: none;
+                }
     cards:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
@@ -180,6 +202,7 @@ views:
           - entity: climate.thermostat_bedroom_climate
           - entity: sensor.0x00158d0002f2ed69_humidity
           - entity: plant.calathea
+          - entity: fan.air_purifier
           - entity: switch.0x00124b0018028fd6_switch_left
         show_header_toggle: true
         title: bedroom

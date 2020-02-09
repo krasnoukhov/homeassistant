@@ -25,6 +25,7 @@ all_turnable_entities:
     - light.0xd0cf5efffefc876e_light
     - light.0x000d6ffffe12c0c2_light
     - light.0x000b57fffed836d2_light
+    - fan.air_purifier
 
 livingroom_lamp:
   name: livingroom-lamp
