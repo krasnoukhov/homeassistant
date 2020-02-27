@@ -243,10 +243,8 @@ climate.thermostat_kitchen_climate:
   friendly_name: kitchen-thermostat
 climate.thermostat_livingroom_climate:
   friendly_name: livingroom-thermostat
-fan.air_purifier:
-  icon: mdi:air-purifier
-sensor.air_purifier_aqi:
-  icon: mdi:air-filter
+fan.air_humidifer:
+  icon: mdi:air-humidifier
 media_player.livingroom_tv:
   friendly_name: livingroom-tv
   icon: mdi:television
