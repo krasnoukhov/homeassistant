@@ -2,19 +2,19 @@ resources:
   - type: module
     url: /local/vacuum-card.js?v1
   - type: module
-    url: /community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js?v1
+    url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js?v1
   - type: js
-    url: /community_plugin/lovelace-valetudo-map-card/valetudo-map-card.js?v1
+    url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js?v1
   - type: module
-    url: /community_plugin/custom-header/custom-header.js?v1
+    url: /hacsfiles/custom-header/custom-header.js?v1
   - type: module
-    url: /community_plugin/lovelace-card-mod/card-mod.js?v1
+    url: /hacsfiles/lovelace-card-mod/card-mod.js?v1
   - type: module
-    url: /community_plugin/simple-thermostat/simple-thermostat.js?v1
+    url: /hacsfiles/simple-thermostat/simple-thermostat.js?v1
   - type: module
-    url: /community_plugin/lovelace-state-switch/state-switch.js?v1
+    url: /hacsfiles/lovelace-state-switch/state-switch.js?v1
   - type: module
-    url: /community_plugin/lovelace-more-info-card/more-info-card.js?v1
+    url: /hacsfiles/lovelace-more-info-card/more-info-card.js?v1
 title: Home
 custom_header:
   compact_mode: true
