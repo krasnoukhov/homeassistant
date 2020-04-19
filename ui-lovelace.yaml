@@ -163,16 +163,6 @@ views:
           entities:
             - sensor.krasnoukhov_weight
             - sensor.darianiff_weight
-      plant.calathea:
-        title: ''
-        card:
-          type: plant-status
-          entity: plant.calathea
-      plant.rosemary:
-        title: ''
-        card:
-          type: plant-status
-          entity: plant.rosemary
     cards:
       - entities:
           - entity: light.0xd0cf5efffefc876e_light
@@ -205,7 +195,7 @@ views:
           - entity: sensor.0x00158d000323089e_humidity
           - entity: sensor.dishwasher_state
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
-          - entity: plant.rosemary
+          - entity: plant.nephrolepis
           - entity: switch.0x00124b001838b864_switch_left
         title: kitchen
         type: entities
@@ -231,6 +221,13 @@ views:
     panel: false
     path: default_view
     title: Home
+  - title: Plants
+    icon: 'mdi:flower'
+    cards:
+    - type: plant-status
+      entity: plant.calathea
+    - type: plant-status
+      entity: plant.nephrolepis
   - badges:
       - automation.everyone_left_climate
       - automation.someone_home_climate

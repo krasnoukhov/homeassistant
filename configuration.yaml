@@ -250,19 +250,19 @@ plant:
     max_conductivity: 1000
     min_temperature: 12
     max_temperature: 34
-  rosemary:
+  nephrolepis:
     sensors:
-      moisture: sensor.miflora_rosemary_moisture
-      battery: sensor.miflora_rosemary_battery
-      temperature: sensor.miflora_rosemary_temperature
-      conductivity: sensor.miflora_rosemary_conductivity
-      brightness: sensor.miflora_rosemary_light
+      moisture: sensor.miflora_nephrolepis_moisture
+      battery: sensor.miflora_nephrolepis_battery
+      temperature: sensor.miflora_nephrolepis_temperature
+      conductivity: sensor.miflora_nephrolepis_conductivity
+      brightness: sensor.miflora_nephrolepis_light
     min_moisture: 15
     max_moisture: 60
     min_battery: 17
-    min_conductivity: 200
-    max_conductivity: 2000
-    min_temperature: 8
+    min_conductivity: 350
+    max_conductivity: 1500
+    min_temperature: 10
     max_temperature: 32
 
 fan:
