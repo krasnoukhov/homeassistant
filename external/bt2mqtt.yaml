@@ -15,6 +15,7 @@ manager:
         devices:
           nephrolepis: C4:7C:8D:66:37:90
         topic_prefix: miflora
+        per_device_timeout: 35
       update_interval: 300
     thermostat:
       args:
