@@ -171,7 +171,8 @@ views:
             state_color: false
           - entity: climate.thermostat_bedroom_climate
           - entity: sensor.0x00158d0002f2ed69_humidity
-          - entity: plant.calathea
+          - entity: plant.calathea1
+          - entity: plant.calathea2
           - entity: fan.air_humidifer
           - entity: switch.0x00124b0018028fd6_switch_left
         show_header_toggle: true
@@ -225,7 +226,9 @@ views:
     icon: 'mdi:flower'
     cards:
     - type: plant-status
-      entity: plant.calathea
+      entity: plant.calathea1
+    - type: plant-status
+      entity: plant.calathea2
     - type: plant-status
       entity: plant.nephrolepis
   - badges:

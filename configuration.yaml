@@ -236,13 +236,27 @@ notify:
       - service: mobile_app_daria_s_iphone
 
 plant:
-  calathea:
+  calathea1:
     sensors:
-      moisture: sensor.miflora_calathea_moisture
-      battery: sensor.miflora_calathea_battery
-      temperature: sensor.miflora_calathea_temperature
-      conductivity: sensor.miflora_calathea_conductivity
-      brightness: sensor.miflora_calathea_light
+      moisture: sensor.miflora_calathea1_moisture
+      battery: sensor.miflora_calathea1_battery
+      temperature: sensor.miflora_calathea1_temperature
+      conductivity: sensor.miflora_calathea1_conductivity
+      brightness: sensor.miflora_calathea1_light
+    min_moisture: 18
+    max_moisture: 65
+    min_battery: 17
+    min_conductivity: 150
+    max_conductivity: 1000
+    min_temperature: 12
+    max_temperature: 34
+  calathea2:
+    sensors:
+      moisture: sensor.miflora_calathea2_moisture
+      battery: sensor.miflora_calathea2_battery
+      temperature: sensor.miflora_calathea2_temperature
+      conductivity: sensor.miflora_calathea2_conductivity
+      brightness: sensor.miflora_calathea2_light
     min_moisture: 18
     max_moisture: 65
     min_battery: 17
