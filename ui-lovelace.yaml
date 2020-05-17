@@ -186,6 +186,7 @@ views:
           - entity: media_player.livingroom_tv
           - entity: media_player.apple_tv
           - entity: vacuum.roborock
+          - entity: plant.hatiora
           - entity: switch.0x00124b001803573a_switch_left
         show_header_toggle: true
         title: livingroom
@@ -231,6 +232,8 @@ views:
       entity: plant.calathea2
     - type: plant-status
       entity: plant.nephrolepis
+    - type: plant-status
+      entity: plant.hatiora
   - badges:
       - automation.everyone_left_climate
       - automation.someone_home_climate

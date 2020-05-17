@@ -16,6 +16,7 @@ manager:
         devices:
           calathea1: 80:EA:CA:89:08:D1
           calathea2: 80:EA:CA:89:08:B5
+          hatiora: C4:7C:8D:66:37:94
         topic_prefix: miflora
         per_device_timeout: 35
       update_interval: 300
