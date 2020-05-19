@@ -28,6 +28,7 @@ recorder:
       - sensor.tv_power
       - sensor.washer_power
       - sensor.dishwasher_power
+      - sensor.boiler_power
       - sensor.roborock_map
       - automation.home_assistant_cron
       - group.all_turnable_entities
@@ -130,6 +131,15 @@ sensor:
         friendly_name: someone-arrived-home
         value_template: |
           {{ (as_timestamp(now()) - as_timestamp(state_attr('automation.entrance_door_open', 'last_triggered'))) < 600 }}
+      boiler_power:
+        friendly_name: boiler-power
+        unit_of_measurement: watt
+        value_template: |
+          {{ state_attr('switch.bathroom_outlet_boiler', 'current_power_w')|float }}
+      boiler_state:
+        friendly_name: boiler-state
+        value_template: >-
+          {% if states('sensor.boiler_power')|float > 0 %}Heating{% else %}Ready{% endif %}
   - platform: rest
     resource: http://192.168.1.25/api/map/latest
     name: roborock_map
@@ -184,6 +194,11 @@ switch:
     mac: !secret kitchen_outlet_dishwasher_mac
     type: sp3
     friendly_name: kitchen-outlet-dishwasher
+  - platform: broadlink
+    host: 192.168.1.26
+    mac: !secret bathroom_outlet_boiler_mac
+    type: sp3
+    friendly_name: bathroom-outlet-boiler
 
 climate:
   - platform: smartir

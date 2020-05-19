@@ -216,6 +216,7 @@ views:
           - entity: sensor.0x00158d000349bfe2_humidity
           - entity: sensor.miscale_weight
           - entity: sensor.washer_state
+          - entity: sensor.boiler_state
           - entity: binary_sensor.0x00158d0002821ea3_water_leak
         title: bathroom
         type: entities

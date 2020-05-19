@@ -261,3 +261,6 @@ sensor.miscale_weight:
 sensor.zigbee_state:
   friendly_name: zigbee
   icon: mdi:zigbee
+sensor.boiler_state:
+  friendly_name: boiler
+  icon: mdi:water-boiler
