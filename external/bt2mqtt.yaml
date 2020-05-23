@@ -14,6 +14,7 @@ manager:
       args:
         devices:
           nephrolepis: C4:7C:8D:66:37:90
+          veggies: 80:EA:CA:89:08:CC
         topic_prefix: miflora
         per_device_timeout: 35
       update_interval: 300

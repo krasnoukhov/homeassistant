@@ -198,6 +198,7 @@ views:
           - entity: sensor.dishwasher_state
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
           - entity: plant.nephrolepis
+          - entity: plant.veggies
           - entity: switch.0x00124b001838b864_switch_left
         title: kitchen
         type: entities
@@ -235,6 +236,8 @@ views:
       entity: plant.nephrolepis
     - type: plant-status
       entity: plant.hatiora
+    - type: plant-status
+      entity: plant.veggies
   - badges:
       - automation.everyone_left_climate
       - automation.someone_home_climate
