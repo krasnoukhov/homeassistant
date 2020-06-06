@@ -1,20 +1,20 @@
 resources:
   - type: module
-    url: /local/vacuum-card.js?v1
+    url: /hacsfiles/vacuum-card/vacuum-card.js
   - type: module
-    url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js?v1
+    url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
   - type: js
-    url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js?v1
+    url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js
   - type: module
-    url: /hacsfiles/custom-header/custom-header.js?v1
+    url: /hacsfiles/custom-header/custom-header.js
   - type: module
-    url: /hacsfiles/lovelace-card-mod/card-mod.js?v1
+    url: /hacsfiles/lovelace-card-mod/card-mod.js
   - type: module
-    url: /hacsfiles/simple-thermostat/simple-thermostat.js?v1
+    url: /hacsfiles/simple-thermostat/simple-thermostat.js
   - type: module
-    url: /hacsfiles/lovelace-state-switch/state-switch.js?v1
+    url: /hacsfiles/lovelace-state-switch/state-switch.js
   - type: module
-    url: /hacsfiles/lovelace-more-info-card/more-info-card.js?v1
+    url: /hacsfiles/lovelace-more-info-card/more-info-card.js
 title: Home
 custom_header:
   compact_mode: true
@@ -41,70 +41,117 @@ views:
       vacuum.roborock:
         title: roborock
         card:
-          type: 'custom:vacuum-card'
-          entity: vacuum.roborock
-          actions:
-            - data:
-                command: go_to
-                entity_id: vacuum.roborock
-                params:
-                  spot_id: toilet
-              icon: 'mdi:toilet'
-              name: go-for-cleanup
-              service: vacuum.send_command
-            - data:
-                command: zoned_cleanup
-                entity_id: vacuum.roborock
-                params:
-                  zone_ids:
-                    - kitchen
-              icon: 'mdi:stove'
-              name: clean-kitchen
-              service: vacuum.send_command
-            - data:
-                command: zoned_cleanup
-                entity_id: vacuum.roborock
-                params:
-                  zone_ids:
-                    - hallway
-              icon: 'mdi:door'
-              name: clean-hallway
-              service: vacuum.send_command
-            - data:
-                command: zoned_cleanup
-                entity_id: vacuum.roborock
-                params:
-                  zone_ids:
-                    - bathroom
-              icon: 'mdi:shower'
-              name: clean-bathroom
-              service: vacuum.send_command
-            - data:
-                command: zoned_cleanup
-                entity_id: vacuum.roborock
-                params:
-                  zone_ids:
-                    - livingroom
-              icon: 'mdi:television'
-              name: clean-livingroom
-              service: vacuum.send_command
-            - data:
-                command: zoned_cleanup
-                entity_id: vacuum.roborock
-                params:
-                  zone_ids:
-                    - bedroom
-              icon: 'mdi:bed-empty'
-              name: clean-bedroom
-              service: vacuum.send_command
-          map:
-            crop:
-              bottom: 90
-              left: 150
-              right: 100
-              top: 200
-            entity: sensor.roborock_map
-            map_scale: 2
+          type: vertical-stack
+          cards:
+            - type: 'custom:vacuum-card'
+              entity: vacuum.roborock
+              show_name: false
+              compact_view: true
+              stats:
+                default:
+                  # - attribute: area
+                  #   unit: m2
+                  #   subtitle: Cleaning area
+                  # - attribute: duration
+                  #   unit: minutes
+                  #   subtitle: Cleaning time
+                  - attribute: filter
+                    unit: hours
+                    subtitle: Filter
+                  - attribute: sideBrush
+                    unit: hours
+                    subtitle: Side brush
+                  - attribute: mainBrush
+                    unit: hours
+                    subtitle: Main brush
+                  - attribute: sensor
+                    unit: hours
+                    subtitle: Sensors
+              actions:
+                - service_data:
+                    command: go_to
+                    entity_id: vacuum.roborock
+                    params:
+                      spot_id: toilet
+                  icon: 'mdi:toilet'
+                  name: go-for-cleanup
+                  service: vacuum.send_command
+                - service_data:
+                    command: zoned_cleanup
+                    entity_id: vacuum.roborock
+                    params:
+                      zone_ids:
+                        - kitchen
+                  icon: 'mdi:stove'
+                  name: clean-kitchen
+                  service: vacuum.send_command
+                - service_data:
+                    command: zoned_cleanup
+                    entity_id: vacuum.roborock
+                    params:
+                      zone_ids:
+                        - hallway
+                  icon: 'mdi:door'
+                  name: clean-hallway
+                  service: vacuum.send_command
+                - service_data:
+                    command: zoned_cleanup
+                    entity_id: vacuum.roborock
+                    params:
+                      zone_ids:
+                        - bathroom
+                  icon: 'mdi:shower'
+                  name: clean-bathroom
+                  service: vacuum.send_command
+                - service_data:
+                    command: zoned_cleanup
+                    entity_id: vacuum.roborock
+                    params:
+                      zone_ids:
+                        - livingroom
+                  icon: 'mdi:television'
+                  name: clean-livingroom
+                  service: vacuum.send_command
+                - service_data:
+                    command: zoned_cleanup
+                    entity_id: vacuum.roborock
+                    params:
+                      zone_ids:
+                        - bedroom
+                  icon: 'mdi:bed-empty'
+                  name: clean-bedroom
+                  service: vacuum.send_command
+              style: |
+                ha-card {
+                  box-shadow: none;
+                }
+
+                .preview,
+                .toolbar {
+                  background: transparent !important;
+                }
+
+                .stats {
+                  flex-wrap: wrap;
+                }
+
+                .stats-block {
+                  width: 50%;
+                  box-sizing: border-box;
+                }
+
+                .stats-block:nth-child(2n) {
+                  border-right: 0;
+                }
+            - type: 'custom:valetudo-map-card'
+              title: ''
+              entity: sensor.roborock_map
+              crop:
+                bottom: 100
+                left: 150
+                right: 100
+                top: 150
+              map_scale: 2
       sensor.zigbee_state:
         title: zigbee
         card:
