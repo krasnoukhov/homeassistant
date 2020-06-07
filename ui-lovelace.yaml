@@ -15,6 +15,8 @@ resources:
     url: /hacsfiles/lovelace-state-switch/state-switch.js
   - type: module
     url: /hacsfiles/lovelace-more-info-card/more-info-card.js
+  - type: module
+    url: /hacsfiles/battery-state-card/battery-state-card.js
 title: Home
 custom_header:
   compact_mode: true
@@ -328,7 +330,7 @@ views:
       - type: custom:state-switch
         entity: sensor.someone_arrived_home
         states:
-          "True":
+          'True':
             type: vertical-stack
             cards:
               - type: entities
@@ -350,7 +352,7 @@ views:
                     state_color: false
                   - entity: light.0xd0cf5efffefc876e_light
                     state_color: false
-          "False":
+          'False':
             type: vertical-stack
             cards:
               - type: glance
@@ -371,3 +373,19 @@ views:
     icon: 'mdi:tablet'
     theme: slate
     title: rPI
+  - badges: []
+    cards:
+      - type: 'custom:battery-state-card'
+        sort_by_level: 'asc'
+        filter:
+          include:
+            - name: entity_id
+              value: '*_battery'
+        state_map:
+          - from: 'on'
+            to: 25
+          - from: 'off'
+            to: 100
+
+    icon: 'mdi:battery'
+    title: Batteries
