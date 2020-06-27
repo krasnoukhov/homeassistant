@@ -17,6 +17,8 @@ resources:
     url: /hacsfiles/lovelace-more-info-card/more-info-card.js
   - type: module
     url: /hacsfiles/battery-state-card/battery-state-card.js
+  - type: module
+    url: /hacsfiles/mini-humidifier/mini-humidifier-bundle.js
 title: Home
 custom_header:
   compact_mode: true
@@ -51,10 +53,10 @@ views:
               compact_view: true
               stats:
                 default:
-                  # - attribute: area
+                  # - attribute: last_run_stats.area
                   #   unit: m2
                   #   subtitle: Cleaning area
-                  # - attribute: duration
+                  # - attribute: last_run_stats.duration
                   #   unit: minutes
                   #   subtitle: Cleaning time
                   - attribute: filter
@@ -161,6 +163,14 @@ views:
           force: 800
           entity: sensor.zigbee_map
 
+      fan.air_humidifer:
+        title: ''
+        card:
+          type: custom:mini-humidifier
+          entity: fan.air_humidifer
+          toggle:
+            default: true
+            hide: true
       climate.thermostat_bedroom_climate:
         title: ''
         card:

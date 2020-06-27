@@ -57,9 +57,6 @@
   action:
     - service: switch.turn_on
       entity_id: switch.0x00124b00180358d3_switch_left
-    - service: fan.turn_on
-      data:
-        entity_id: fan.air_humidifer
 
 - alias: someone-home-climate
   trigger:
@@ -231,6 +228,44 @@
     data_template:
       message: |
         {{ trigger.from_state.name }} reports a problem with {{ trigger.to_state.attributes.problem }}, check it out
+
+# Vacuum
+
+- alias: send-roborock-for-cleanup
+  trigger:
+    platform: state
+    entity_id: vacuum.roborock
+    to: docked
+    for:
+      seconds: 5
+  condition:
+    condition: template
+    value_template: >
+      {{ state_attr('vacuum.roborock', 'fan_speed') != 'low' and state_attr('vacuum.roborock', 'last_run_stats').area|float >= 40 }}
+  action:
+    - service: vacuum.set_fan_speed
+      data:
+        entity_id: vacuum.roborock
+        fan_speed: low
+    - service: vacuum.send_command
+      data:
+        entity_id: vacuum.roborock
+        command: go_to
+        params:
+          spot_id: toilet
+
+- alias: reset-roborock-fan-speed
+  trigger:
+    platform: state
+    entity_id: vacuum.roborock
+    to: docked
+    for:
+      seconds: 10
+  action:
+    service: vacuum.set_fan_speed
+    data:
+      entity_id: vacuum.roborock
+      fan_speed: max
 
 # Washer
 

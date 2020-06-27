@@ -236,12 +236,12 @@ notify:
   - name: daria
     platform: group
     services:
-      - service: mobile_app_daria_s_iphone
+      - service: mobile_app_iphone
   - name: people
     platform: group
     services:
       - service: mobile_app_krasnoukhovs_iphone
-      - service: mobile_app_daria_s_iphone
+      - service: mobile_app_iphone
 
 plant:
   calathea1:
