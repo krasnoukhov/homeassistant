@@ -21,9 +21,6 @@ devices:
   '0x00158d0002f2ed1f':
     friendly_name: livingroom
     retain: true
-  '0x00124b001838b864':
-    friendly_name: kitchen_light
-    retain: true
   '0x00158d0002e2ccea':
     friendly_name: bedroom_lamps_switch
     retain: true
@@ -107,4 +104,7 @@ devices:
     retain: true
   '0xec1bbdfffe004203':
     friendly_name: livingroom_lamp_remote
+    retain: true
+  '0x680ae2fffe71ae5a':
+    friendly_name: kitchen_light
     retain: true

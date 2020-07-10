@@ -258,7 +258,7 @@ views:
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
           - entity: plant.nephrolepis
           - entity: plant.veggies
-          - entity: switch.0x00124b001838b864_switch_left
+          - entity: switch.0x680ae2fffe71ae5a_switch
         title: kitchen
         type: entities
       - entities:

@@ -15,7 +15,7 @@ all_turnable_entities:
     - switch.0x00124b0018028fd6_switch_left
     - switch.0x00124b001803573a_switch_left
     - switch.0x00124b00180358d3_switch_left
-    - switch.0x00124b001838b864_switch_left
+    - switch.0x680ae2fffe71ae5a_switch
     - switch.0x00124b001838cdfd_switch_left
     - switch.0x00124b001838cdfd_switch_right
     - switch.0x00124b001838d9fe_switch_left

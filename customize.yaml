@@ -22,12 +22,10 @@ sensor.0x00158d0002f2ed1f_linkquality:
 sensor.0x00158d0002f2ed1f_battery:
   friendly_name: livingroom-battery
 
-switch.0x00124b001838b864_switch_left:
+switch.0x680ae2fffe71ae5a_switch:
   friendly_name: kitchen-light
   icon: mdi:ceiling-light
-switch.0x00124b001838b864_switch_right:
-  friendly_name: kitchen-light-defunct
-sensor.0x00124b001838b864_linkquality:
+sensor.0x680ae2fffe71ae5a_linkquality:
   friendly_name: kitchen-light-link
 
 sensor.0x00158d0002e2ccea_click:
