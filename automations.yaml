@@ -237,7 +237,7 @@
     entity_id: vacuum.roborock
     to: docked
     for:
-      seconds: 5
+      seconds: 30
   condition:
     condition: template
     value_template: >
@@ -247,6 +247,8 @@
       data:
         entity_id: vacuum.roborock
         fan_speed: low
+    - delay:
+        seconds: 15
     - service: vacuum.send_command
       data:
         entity_id: vacuum.roborock
@@ -260,7 +262,7 @@
     entity_id: vacuum.roborock
     to: docked
     for:
-      seconds: 10
+      seconds: 60
   action:
     service: vacuum.set_fan_speed
     data:
