@@ -43,29 +43,25 @@ switch.0x00124b00180358d3_switch_right:
 sensor.0x00124b00180358d3_linkquality:
   friendly_name: hallway-light-entrance-link
 
-switch.0x00124b001838cdfd_switch_left:
+switch.0x842e14fffefa1aca_switch_left:
   friendly_name: bathroom-light
   icon: mdi:ceiling-light
-switch.0x00124b001838cdfd_switch_right:
+switch.0x842e14fffefa1aca_switch_right:
   friendly_name: bathroom-fan
   icon: mdi:fan
-sensor.0x00124b001838cdfd_linkquality:
+sensor.0x842e14fffefa1aca_linkquality:
   friendly_name: bathroom-switch-link
 
-switch.0x00124b001803573a_switch_left:
+switch.0xec1bbdfffe8033e4_switch:
   friendly_name: livingroom-light
   icon: mdi:ceiling-light
-switch.0x00124b001803573a_switch_right:
-  friendly_name: livingroom-light-defunct
-sensor.0x00124b001803573a_linkquality:
+sensor.0xec1bbdfffe8033e4_linkquality:
   friendly_name: livingroom-light-link
 
-switch.0x00124b0018028fd6_switch_left:
+switch.0x680ae2fffe71b12a_switch:
   friendly_name: bedroom-light
   icon: mdi:ceiling-light
-switch.0x00124b0018028fd6_switch_right:
-  friendly_name: bedroom-light-defunct
-sensor.0x00124b0018028fd6_linkquality:
+sensor.0x680ae2fffe71b12a_linkquality:
   friendly_name: bedroom-light-link
 
 switch.0x00124b001838d640_switch_left:

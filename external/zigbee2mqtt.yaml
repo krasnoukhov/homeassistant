@@ -27,15 +27,6 @@ devices:
   '0x00124b00180358d3':
     friendly_name: hallway_light_entrance
     retain: true
-  '0x00124b001838cdfd':
-    friendly_name: bathroom_switch
-    retain: true
-  '0x00124b001803573a':
-    friendly_name: livingroom_light
-    retain: true
-  '0x00124b0018028fd6':
-    friendly_name: bedroom_light
-    retain: true
   '0x00124b001838d640':
     friendly_name: hallway_light_dup
     retain: true
@@ -107,4 +98,13 @@ devices:
     retain: true
   '0x680ae2fffe71ae5a':
     friendly_name: kitchen_light
+    retain: true
+  '0x842e14fffefa1aca':
+    friendly_name: bathroom_switch
+    retain: true
+  '0xec1bbdfffe8033e4':
+    friendly_name: livingroom_light
+    retain: true
+  '0x680ae2fffe71b12a':
+    friendly_name: bedroom_light
     retain: true

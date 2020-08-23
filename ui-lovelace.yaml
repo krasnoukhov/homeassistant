@@ -233,7 +233,7 @@ views:
           - entity: plant.calathea1
           - entity: plant.calathea2
           - entity: fan.air_humidifer
-          - entity: switch.0x00124b0018028fd6_switch_left
+          - entity: switch.0x680ae2fffe71b12a_switch
         show_header_toggle: true
         title: bedroom
         type: entities
@@ -246,7 +246,7 @@ views:
           - entity: media_player.apple_tv
           - entity: vacuum.roborock
           - entity: plant.hatiora
-          - entity: switch.0x00124b001803573a_switch_left
+          - entity: switch.0xec1bbdfffe8033e4_switch
         show_header_toggle: true
         title: livingroom
         type: entities
@@ -270,8 +270,8 @@ views:
         title: hallway
         type: entities
       - entities:
-          - entity: switch.0x00124b001838cdfd_switch_left
-          - entity: switch.0x00124b001838cdfd_switch_right
+          - entity: switch.0x842e14fffefa1aca_switch_left
+          - entity: switch.0x842e14fffefa1aca_switch_right
           - entity: sensor.0x00158d000349bfe2_temperature
           - entity: sensor.0x00158d000349bfe2_humidity
           - entity: sensor.miscale_weight

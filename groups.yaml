@@ -12,12 +12,12 @@ people:
 all_turnable_entities:
   name: all-turnable-entities
   entities:
-    - switch.0x00124b0018028fd6_switch_left
-    - switch.0x00124b001803573a_switch_left
+    - switch.0x680ae2fffe71b12a_switch
+    - switch.0xec1bbdfffe8033e4_switch
     - switch.0x00124b00180358d3_switch_left
     - switch.0x680ae2fffe71ae5a_switch
-    - switch.0x00124b001838cdfd_switch_left
-    - switch.0x00124b001838cdfd_switch_right
+    - switch.0x842e14fffefa1aca_switch_left
+    - switch.0x842e14fffefa1aca_switch_right
     - switch.0x00124b001838d9fe_switch_left
     - light.0x000d6ffffe4872d8_light
     - light.0x000d6ffffe0e63cd_light
