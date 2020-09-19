@@ -166,39 +166,12 @@ binary_sensor:
         value_template: |
           {{ state_attr('switch.livingroom_outlet_tv', 'current_power_w')|float > 5 }}
 
-switch:
-  - platform: broadlink
-    host: 192.168.1.20
-    mac: !secret livingroom_ir_mac
-    type: rm_mini
-  - platform: broadlink
-    host: 192.168.1.21
-    mac: !secret livingroom_outlet_tv_mac
-    type: sp3
-    friendly_name: livingroom-outlet-tv
-    scan_interval: 3
-  - platform: broadlink
-    host: 192.168.1.22
-    mac: !secret bathroom_outlet_washer_mac
-    type: sp3
-    friendly_name: bathroom-outlet-washer
-  - platform: broadlink
-    host: 192.168.1.23
-    mac: !secret kitchen_outlet_dishwasher_mac
-    type: sp3
-    friendly_name: kitchen-outlet-dishwasher
-  - platform: broadlink
-    host: 192.168.1.26
-    mac: !secret bathroom_outlet_boiler_mac
-    type: sp3
-    friendly_name: bathroom-outlet-boiler
-
 climate:
   - platform: smartir
     name: livingroom-ac
     unique_id: livingroom_ac
     device_code: 1180
-    controller_data: 192.168.1.20
+    controller_data: remote.livingroom_ir
     temperature_sensor: sensor.0x00158d0002f2ed1f_temperature
     humidity_sensor: sensor.0x00158d0002f2ed1f_humidity
 
@@ -207,7 +180,7 @@ media_player:
     name: livingroom-tv
     unique_id: livingroom_tv
     device_code: 1020
-    controller_data: 192.168.1.20
+    controller_data: remote.livingroom_ir
     power_sensor: binary_sensor.livingroom_outlet_tv_state
 
 input_select:
