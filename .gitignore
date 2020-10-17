@@ -12,6 +12,7 @@ www/community
 .HA_VERSION
 *.log
 *.env
+.vscode
 
 secrets.yaml
 known_devices.yaml

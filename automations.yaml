@@ -368,7 +368,7 @@
             true
           {%- endif -%}
   action:
-    - service_template: >
+    - service: >
         {% if (is_state('person.dmitry', 'home')) and (is_state('person.daria', 'home')) %}
           notify.people
         {% elif is_state('person.dmitry', 'home') %}
@@ -482,7 +482,7 @@
             true
           {%- endif -%}
   action:
-    - service_template: >
+    - service: >
         {% if (is_state('person.dmitry', 'home')) and (is_state('person.daria', 'home')) %}
           notify.people
         {% elif is_state('person.dmitry', 'home') %}
