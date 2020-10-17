@@ -28,7 +28,6 @@
     - service: climate.turn_off
       data:
         entity_id: climate.livingroom_ac
-    - service: script.turn_off_tv
 
 - alias: everyone-left-climate
   trigger:
