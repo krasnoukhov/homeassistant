@@ -23,9 +23,9 @@ sensor:
   - platform: adc
     pin: GPIO32
     name: cat_fountain_illuminance
-    update_interval: 60s
+    update_interval: 1s
     attenuation: 11db
     unit_of_measurement: lx
     filters:
-      - lambda: |-
-          return (x / 10000.0) * 2000000.0;
+      - delta: 0.01
+      - lambda: return (x / 10000.0) * 2000000.0;

@@ -228,6 +228,19 @@
       message: |
         {{ trigger.from_state.name }} reports a problem with {{ trigger.to_state.attributes.problem }}, check it out
 
+- alias: send-cat-fouintain-alert
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.cat_fountain_illuminance
+    above: 50
+  action:
+    - service: notify.people
+      data_template:
+        message: |
+          Cat fountain reports a problem with water level, check it out
+    - delay:
+        hours: 8
+
 # Vacuum
 
 - alias: send-roborock-for-cleanup
