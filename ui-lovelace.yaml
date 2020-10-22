@@ -234,6 +234,7 @@ views:
           - entity: binary_sensor.0x00158d00028a09a5_water_leak
           - entity: plant.nephrolepis
           - entity: plant.veggies
+          - entity: plant.monstera
           - entity: switch.0x680ae2fffe71ae5a_switch
         title: kitchen
         type: entities
@@ -273,6 +274,8 @@ views:
       entity: plant.hatiora
     - type: plant-status
       entity: plant.veggies
+    - type: plant-status
+      entity: plant.monstera
   - badges:
       - automation.everyone_left_climate
       - automation.someone_home_climate
