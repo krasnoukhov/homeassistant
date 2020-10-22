@@ -232,7 +232,7 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.cat_fountain_illuminance
-    above: 50
+    above: 100
   action:
     - service: notify.people
       data_template:
