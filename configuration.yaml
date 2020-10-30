@@ -10,6 +10,11 @@ datadog:
 discovery:
 smartir:
 browser_mod:
+  devices:
+    6ea4aa01-44d7b3ac:
+      name: rpi
+  disable:
+    - all
 pi_hole:
   host: 192.168.1.2:8882
 tts:
@@ -23,8 +28,6 @@ lovelace:
       url: /hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js
     - type: js
       url: /hacsfiles/lovelace-valetudo-map-card/valetudo-map-card.js
-    - type: module
-      url: /hacsfiles/custom-header/custom-header.js
     - type: module
       url: /hacsfiles/lovelace-card-mod/card-mod.js
     - type: module

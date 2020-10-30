@@ -1,6 +1,4 @@
 title: Home
-custom_header:
-  compact_mode: true
 _thermostat: &_thermostat
   type: 'custom:simple-thermostat'
   style: |
