@@ -15,10 +15,6 @@ logger:
 api:
 ota:
 
-binary_sensor:
-  - platform: status
-    name: cat_fountain_status
-
 sensor:
   - platform: adc
     pin: GPIO32
