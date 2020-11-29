@@ -202,6 +202,7 @@ views:
             state_color: false
           - entity: light.0x000d6ffffe12c0c2_light
             state_color: false
+          - entity: cover.bedroom_curtain
           - entity: climate.thermostat_bedroom_climate
           - entity: sensor.0x00158d0002f2ed69_humidity
           - entity: plant.calathea1
@@ -373,6 +374,17 @@ views:
             to: 25
           - from: 'off'
             to: 100
-
     icon: 'mdi:battery'
     title: Batteries
+  - badges: []
+    cards:
+      - type: 'custom:scheduler-card'
+        include:
+          - automation
+          - climate
+          - cover
+          - group
+          - light
+          - person
+    icon: 'mdi:calendar-edit'
+    title: Schedule

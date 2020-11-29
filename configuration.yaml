@@ -40,6 +40,8 @@ lovelace:
       url: /hacsfiles/battery-state-card/battery-state-card.js
     - type: module
       url: /hacsfiles/mini-humidifier/mini-humidifier-bundle.js
+    - type: module
+      url: /hacsfiles/scheduler-card/scheduler-card.js
 recorder:
   db_url: !secret db_url
   exclude:
@@ -332,6 +334,11 @@ fan:
     token: !secret air_humidifier_token
     name: air-humidifer
     model: zhimi.humidifier.ca1
+
+cover:
+  - platform: switchbot-curtain
+    mac: EE:22:81:F3:BD:42
+    name: bedroom-curtain
 
 panel_iframe:
   unifi:
